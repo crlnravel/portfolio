@@ -1,5 +1,4 @@
 ---
-import portrait from '../assets/carleano-ravelza-wongso.jpg';
 import Arrow from '../components/Arrow.astro';
 import Experience from '../components/Experience.astro';
 import SiteHeader from '../components/SiteHeader.astro';
@@ -12,7 +11,6 @@ import Layout from '../layouts/Layout.astro';
 	<SiteHeader />
 	<aside class="progress-rail" aria-hidden="true">
 		<div class="rail-line"><div class="rail-fill" data-progress></div></div>
-		<span class="rail-label">curiosity → shipped systems</span>
 	</aside>
 
 	<main id="main">
@@ -23,10 +21,6 @@ import Layout from '../layouts/Layout.astro';
 					<h1 class="display">I build thoughtful software for <em>people</em>, systems, and ideas that deserve to scale.</h1>
 				</div>
 				<div class="hero-side hero-enter hero-enter-delay">
-					<figure class="portrait-frame">
-						<img src={portrait.src} width={portrait.width} height={portrait.height} alt="Carleano Ravelza Wongso" loading="eager" decoding="async" />
-						<figcaption class="portrait-note">Ravel · Jakarta, Indonesia</figcaption>
-					</figure>
 					<div>
 						<p class="hero-intro">Software engineer and computer science student exploring scalable systems, intelligent products, and technology that stays useful to the people around it.</p>
 						<div class="hero-actions">
@@ -39,34 +33,6 @@ import Layout from '../layouts/Layout.astro';
 						</div>
 					</div>
 				</div>
-				<div class="hero-foot hero-enter hero-enter-foot">
-					<div class="availability"><span class="availability-dot" aria-hidden="true"></span>Open to software engineering and AI opportunities</div>
-					<p class="current-note">Currently building native Apple-platform experiences—and usually sketching the next ambitious system.</p>
-				</div>
-			</div>
-		</section>
-
-		<section class="section shell section-rule" id="about" data-section>
-			<div data-reveal>
-				<span class="eyebrow">02 · About</span>
-				<h2 class="section-title">An engineer who likes the room where ideas get sharper.</h2>
-			</div>
-			<div class="about-grid" data-reveal>
-				<aside class="about-aside"><span>Computer Science</span><span>Universitas Indonesia</span><span>Software + AI</span></aside>
-				<div class="about-body">
-					<p>Carleano studies computer science at Universitas Indonesia and builds scalable web applications, backend systems, cloud infrastructure, and AI-powered products.</p>
-					<p class="quiet">He is most interested in the connective tissue: architecture that teams can maintain, infrastructure that makes shipping calmer, and product decisions that turn complexity into something genuinely useful.</p>
-				</div>
-				<div class="annotation">Ask why.<br />Then build.</div>
-			</div>
-			<div class="beyond" data-reveal>
-				<div><span class="eyebrow">Beyond the code</span></div>
-				<div class="beyond-list">
-					<div class="beyond-item">Collaboration & brainstorming</div>
-					<div class="beyond-item">Mentoring & shared learning</div>
-					<div class="beyond-item">Product conversations</div>
-					<div class="beyond-item">Ideas carried into working products</div>
-				</div>
 			</div>
 		</section>
 
@@ -75,7 +41,7 @@ import Layout from '../layouts/Layout.astro';
 
 		<section class="section shell" id="recognition" data-section>
 			<div data-reveal>
-				<span class="eyebrow">05 · Recognition & capabilities</span>
+				<span class="eyebrow">04 · Recognition & capabilities</span>
 				<h2 class="section-title">Signals of craft, kept in proportion.</h2>
 			</div>
 			<div class="recognition-layout" data-reveal>
@@ -85,12 +51,28 @@ import Layout from '../layouts/Layout.astro';
 					<div class="award"><span class="award-place">2nd</span><div><div class="award-name">FindIT Hackathon</div><div class="award-org">Universitas Gadjah Mada</div></div><span class="award-year">2025</span></div>
 				</div>
 			</div>
-			<div class="skills-wrap" data-reveal>
-				<div><span class="eyebrow">Working vocabulary</span></div>
-				<div class="skills-groups">
-					<div class="skill-group"><h3>Software engineering</h3><p>Go, TypeScript, Java, SQL, NoSQL, Redis, REST APIs, software architecture</p></div>
-					<div class="skill-group"><h3>AI & machine learning</h3><p>OpenAI API, Retrieval-Augmented Generation, LangChain, YOLO, NeRF, Stable Diffusion</p></div>
-					<div class="skill-group"><h3>Cloud & infrastructure</h3><p>Docker, Kubernetes, GitHub Actions, CI/CD, AWS, GCP, Tencent Cloud</p></div>
+			<div class="capabilities" data-reveal>
+				<div class="capabilities-intro">
+					<span class="eyebrow">How I build</span>
+					<h3>I work across the whole path from product idea to reliable system.</h3>
+					<p>My strongest work connects product thinking with backend engineering: understanding the problem, shaping an architecture teams can maintain, building the API and data layer, then creating the delivery infrastructure that keeps iteration calm. In AI products, I focus on retrieval, evaluation, and useful context—not adding a model where conventional software would be clearer.</p>
+				</div>
+				<div class="capability-index" aria-label="Technical capabilities">
+					<div class="capability-row">
+						<span class="capability-number">01</span>
+						<div><h4>Product & software systems</h4><p>Backend services, maintainable APIs, data modeling, and architecture that gives teams a clear path to extend the product.</p></div>
+						<p class="capability-tools">Go · TypeScript · Java · REST APIs · SQL · NoSQL · Redis</p>
+					</div>
+					<div class="capability-row">
+						<span class="capability-number">02</span>
+						<div><h4>AI engineering</h4><p>Context-aware intelligent products built around retrieval, experimentation, and choosing the right model or conventional system for the job.</p></div>
+						<p class="capability-tools">OpenAI API · RAG · LangChain · YOLO · NeRF · Stable Diffusion</p>
+					</div>
+					<div class="capability-row">
+						<span class="capability-number">03</span>
+						<div><h4>Delivery & infrastructure</h4><p>Cloud and delivery systems that reduce friction, make deployments repeatable, and keep production work observable and dependable.</p></div>
+						<p class="capability-tools">Docker · Kubernetes · GitHub Actions · CI/CD · AWS · GCP · Tencent Cloud</p>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -98,7 +80,7 @@ import Layout from '../layouts/Layout.astro';
 		<section class="contact" id="contact" data-section>
 			<div class="section shell contact-layout">
 				<div data-reveal>
-					<span class="eyebrow">06 · Contact</span>
+					<span class="eyebrow">05 · Contact</span>
 					<h2 class="contact-title">Have an interesting problem, product, or idea?</h2>
 					<a class="button button-primary" href="mailto:carleanoravel@gmail.com">Start a conversation <Arrow /></a>
 				</div>
@@ -116,6 +98,6 @@ import Layout from '../layouts/Layout.astro';
 		</section>
 	</main>
 
-	<footer class="footer"><div class="shell footer-inner"><span>© 2026 Carleano Ravelza Wongso</span><span>Built with care in Jakarta.</span></div></footer>
+	<footer class="footer"><div class="shell footer-inner"><span>© 2026 Carleano Ravelza Wongso</span><span>Built with care</span></div></footer>
 	<script src="../scripts/portfolio.ts"></script>
 </Layout>

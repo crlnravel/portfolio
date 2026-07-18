@@ -28,6 +28,7 @@ function handleScroll() {
 }
 handleScroll();
 window.addEventListener('scroll', handleScroll, { passive: true });
+window.addEventListener('resize', handleScroll, { passive: true });
 
 function setMenu(open: boolean) {
 	if (!menuButton || !mobileMenu) return;
