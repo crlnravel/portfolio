@@ -1,0 +1,105 @@
+---
+const projects = [
+	{
+		name: 'Lookals',
+		statement: 'There’s a difference between arriving and belonging.',
+		className: 'project-visual--0',
+		context: 'Native Apple-platform product',
+		role: 'Product thinking · SwiftUI',
+		outcome: 'Newcomers become active participants',
+		copy: 'A group-based, gamified tour that helps newcomers build a sense of belonging in an unfamiliar place. Carleano worked across user research, location-based interaction, product decisions, and SwiftUI implementation with a multidisciplinary team.',
+		note: 'Belonging starts when newcomers participate—not when they simply receive directions.',
+	},
+	{
+		name: 'Trisurya',
+		statement: 'Useful answers need the right context, not just a response.',
+		className: 'project-visual--1',
+		context: 'Multilingual omnichannel AI',
+		role: 'Research · Systems design',
+		outcome: 'Presented at an IEEE conference',
+		copy: 'An LLM-powered chatbot for more accessible public services. Its hybrid knowledge architecture combines Neo4j and PostgreSQL with context-aware retrieval, GPT APIs, and Retrieval-Augmented Generation.',
+		note: 'One knowledge system, shaped to work across languages, channels, and public-service contexts.',
+	},
+	{
+		name: 'COMPFEST',
+		statement: 'Good infrastructure gives teams more room to think.',
+		className: 'project-visual--2',
+		context: 'Infrastructure & automation',
+		role: 'Engineering leadership',
+		outcome: '~40% faster deployments',
+		copy: 'Led or co-led more than ten developers building platforms serving over 2,000 daily users. The work centered on CI/CD design, internal automation, deployment reliability, and making the platform easier for teams to operate.',
+		note: 'Ship with less friction. Make the healthy path the easiest path for the whole team.',
+	},
+	{
+		name: 'Systems lab',
+		statement: 'Keep the system legible as it grows.',
+		className: 'project-visual--3',
+		context: 'Additional engineering work',
+		role: 'Backend · Cloud · AI',
+		outcome: 'A growing body of systems work',
+		copy: 'Ongoing work across Go, TypeScript, Java, PostgreSQL, Redis, Docker, Kubernetes, AWS, GCP, Retrieval-Augmented Generation, and applied AI systems—organized around decisions and constraints, not a logo collection.',
+		note: 'Small studies in backend, cloud, and AI systems—each one a chance to make the next system clearer.',
+	},
+];
+---
+
+<section class="work" id="work" data-section>
+	<div class="section shell">
+		<div class="work-head" data-reveal>
+			<div>
+				<span class="eyebrow">04 · Selected work</span>
+				<h2 class="section-title">Ideas become useful when the system holds.</h2>
+			</div>
+			<p class="lead">Four views into how Carleano moves between human needs, technical constraints, and reliable execution.</p>
+		</div>
+		<div class="project-stage" data-projects data-reveal>
+			<div class="project-index" role="tablist" aria-label="Selected projects">
+				{projects.map((project, index) => (
+					<button
+						id={`project-tab-${index}`}
+						class:list={['project-tab', { active: index === 0 }]}
+						role="tab"
+						aria-selected={index === 0 ? 'true' : 'false'}
+						aria-controls={`project-panel-${index}`}
+						tabindex={index === 0 ? 0 : -1}
+						data-project-tab={index}
+					>
+						<span class="project-tab-number">0{index + 1}</span>
+						<span class="project-tab-name">{project.name}</span>
+						<span class="project-tab-mark" aria-hidden="true">{index === 0 ? '↗' : '·'}</span>
+					</button>
+				))}
+			</div>
+			<div class="project-panels">
+				{projects.map((project, index) => (
+					<article
+						id={`project-panel-${index}`}
+						class:list={['project-panel', { active: index === 0 }]}
+						role="tabpanel"
+						aria-labelledby={`project-tab-${index}`}
+						tabindex="0"
+						hidden={index !== 0}
+						data-project-panel={index}
+					>
+						<div class:list={['project-visual', project.className]}>
+							<span class="visual-meta">Case study / {project.context}</span>
+							<p class="visual-statement">{project.statement}</p>
+							<span class="visual-note">{project.note}</span>
+						</div>
+						<div class="project-copy">
+							<div>
+								<h3>{project.name}</h3>
+								<p>{project.copy}</p>
+							</div>
+							<dl class="project-facts">
+								<div><dt>Context</dt><dd>{project.context}</dd></div>
+								<div><dt>Role</dt><dd>{project.role}</dd></div>
+								<div><dt>Signal</dt><dd>{project.outcome}</dd></div>
+							</dl>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</div>
+</section>

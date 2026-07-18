@@ -1,11 +1,121 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import portrait from '../assets/carleano-ravelza-wongso.jpg';
+import Arrow from '../components/Arrow.astro';
+import Experience from '../components/Experience.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import Work from '../components/Work.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+	<a class="skip-link" href="#main">Skip to main content</a>
+	<SiteHeader />
+	<aside class="progress-rail" aria-hidden="true">
+		<div class="rail-line"><div class="rail-fill" data-progress></div></div>
+		<span class="rail-label">curiosity → shipped systems</span>
+	</aside>
+
+	<main id="main">
+		<section class="hero shell" id="home" data-section>
+			<div class="hero-grid">
+				<div class="hero-copy hero-enter">
+					<div class="hero-kicker"><span>Carleano Ravelza Wongso</span><span>Jakarta · Indonesia</span></div>
+					<h1 class="display">I build thoughtful software for <em>people</em>, systems, and ideas that deserve to scale.</h1>
+				</div>
+				<div class="hero-side hero-enter hero-enter-delay">
+					<figure class="portrait-frame">
+						<img src={portrait.src} width={portrait.width} height={portrait.height} alt="Carleano Ravelza Wongso" loading="eager" decoding="async" />
+						<figcaption class="portrait-note">Ravel · Jakarta, Indonesia</figcaption>
+					</figure>
+					<div>
+						<p class="hero-intro">Software engineer and computer science student exploring scalable systems, intelligent products, and technology that stays useful to the people around it.</p>
+						<div class="hero-actions">
+							<a class="button button-primary" href="#work">Explore my work <Arrow /></a>
+							<a class="button" href="/resume/">View résumé</a>
+						</div>
+						<div class="social-row">
+							<a href="https://github.com/crlnravel" target="_blank" rel="noreferrer">GitHub ↗</a>
+							<a href="https://www.linkedin.com/in/carleano-ravelza-wongso/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+						</div>
+					</div>
+				</div>
+				<div class="hero-foot hero-enter hero-enter-foot">
+					<div class="availability"><span class="availability-dot" aria-hidden="true"></span>Open to software engineering and AI opportunities</div>
+					<p class="current-note">Currently building native Apple-platform experiences—and usually sketching the next ambitious system.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="section shell section-rule" id="about" data-section>
+			<div data-reveal>
+				<span class="eyebrow">02 · About</span>
+				<h2 class="section-title">An engineer who likes the room where ideas get sharper.</h2>
+			</div>
+			<div class="about-grid" data-reveal>
+				<aside class="about-aside"><span>Computer Science</span><span>Universitas Indonesia</span><span>Software + AI</span></aside>
+				<div class="about-body">
+					<p>Carleano studies computer science at Universitas Indonesia and builds scalable web applications, backend systems, cloud infrastructure, and AI-powered products.</p>
+					<p class="quiet">He is most interested in the connective tissue: architecture that teams can maintain, infrastructure that makes shipping calmer, and product decisions that turn complexity into something genuinely useful.</p>
+				</div>
+				<div class="annotation">Ask why.<br />Then build.</div>
+			</div>
+			<div class="beyond" data-reveal>
+				<div><span class="eyebrow">Beyond the code</span></div>
+				<div class="beyond-list">
+					<div class="beyond-item">Collaboration & brainstorming</div>
+					<div class="beyond-item">Mentoring & shared learning</div>
+					<div class="beyond-item">Product conversations</div>
+					<div class="beyond-item">Ideas carried into working products</div>
+				</div>
+			</div>
+		</section>
+
+		<Experience />
+		<Work />
+
+		<section class="section shell" id="recognition" data-section>
+			<div data-reveal>
+				<span class="eyebrow">05 · Recognition & capabilities</span>
+				<h2 class="section-title">Signals of craft, kept in proportion.</h2>
+			</div>
+			<div class="recognition-layout" data-reveal>
+				<p class="lead">Recognition matters most when it points back to the team, the decisions, and the work that held up under pressure.</p>
+				<div class="award-list">
+					<div class="award"><span class="award-place">1st</span><div><div class="award-name">Web Application Competition</div><div class="award-org">Politeknik Negeri Semarang</div></div><span class="award-year">2025</span></div>
+					<div class="award"><span class="award-place">2nd</span><div><div class="award-name">FindIT Hackathon</div><div class="award-org">Universitas Gadjah Mada</div></div><span class="award-year">2025</span></div>
+				</div>
+			</div>
+			<div class="skills-wrap" data-reveal>
+				<div><span class="eyebrow">Working vocabulary</span></div>
+				<div class="skills-groups">
+					<div class="skill-group"><h3>Software engineering</h3><p>Go, TypeScript, Java, SQL, NoSQL, Redis, REST APIs, software architecture</p></div>
+					<div class="skill-group"><h3>AI & machine learning</h3><p>OpenAI API, Retrieval-Augmented Generation, LangChain, YOLO, NeRF, Stable Diffusion</p></div>
+					<div class="skill-group"><h3>Cloud & infrastructure</h3><p>Docker, Kubernetes, GitHub Actions, CI/CD, AWS, GCP, Tencent Cloud</p></div>
+				</div>
+			</div>
+		</section>
+
+		<section class="contact" id="contact" data-section>
+			<div class="section shell contact-layout">
+				<div data-reveal>
+					<span class="eyebrow">06 · Contact</span>
+					<h2 class="contact-title">Have an interesting problem, product, or idea?</h2>
+					<a class="button button-primary" href="mailto:carleanoravel@gmail.com">Start a conversation <Arrow /></a>
+				</div>
+				<aside class="contact-side" data-reveal>
+					<p>I’d love to hear about software engineering roles, AI products, backend and platform work, collaborative projects, or the technology idea you cannot stop thinking about.</p>
+					<div class="contact-links">
+						<a href="mailto:carleanoravel@gmail.com"><span>carleanoravel@gmail.com</span><span>↗</span></a>
+						<a href="https://www.linkedin.com/in/carleano-ravelza-wongso/" target="_blank" rel="noreferrer"><span>LinkedIn</span><span>↗</span></a>
+						<a href="https://github.com/crlnravel" target="_blank" rel="noreferrer"><span>GitHub</span><span>↗</span></a>
+						<a href="/resume/"><span>Résumé</span><span>→</span></a>
+						<span class="contact-location">Jakarta, Indonesia</span>
+					</div>
+				</aside>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer"><div class="shell footer-inner"><span>© 2026 Carleano Ravelza Wongso</span><span>Built with care in Jakarta.</span></div></footer>
+	<script src="../scripts/portfolio.ts"></script>
 </Layout>

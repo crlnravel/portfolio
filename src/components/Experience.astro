@@ -1,0 +1,64 @@
+---
+const roles = [
+	{
+		role: 'Developer',
+		company: 'Apple Developer Academy',
+		date: 'Mar 2026 — Present',
+		detail: 'Designing and developing native Apple-platform applications with SwiftUI. The work moves through user research, rapid prototypes, usability tests, and close collaboration with multidisciplinary teams.',
+	},
+	{
+		role: 'Software Engineer Intern',
+		company: 'QuorumAI',
+		date: 'Mar — Nov 2025',
+		detail: 'Built production backend services in Go for AI-powered meeting workflows, shaped REST APIs and microservices, and optimized PostgreSQL paths that contributed to an approximate 40% reduction in API latency.',
+	},
+	{
+		role: 'Web Developer',
+		company: 'Freelance',
+		date: 'Jun 2024 — Present',
+		detail: 'Owns projects end to end: clarifying requirements directly with clients, translating business needs into maintainable systems, and carrying the work through implementation and deployment.',
+	},
+	{
+		role: 'AI / ML Mentor',
+		company: 'Pusilkom UI × Medco Energi',
+		date: 'Nov — Dec 2025',
+		detail: 'Mentored professionals through applied AI and machine-learning projects, with emphasis on model evaluation, experimentation, and connecting technical results to practical business needs.',
+	},
+];
+---
+
+<section class="section shell section-rule" id="experience" data-section>
+	<div class="experience-head" data-reveal>
+		<div>
+			<span class="eyebrow">03 · Experience</span>
+			<h2 class="section-title">Learning in public. Building in production.</h2>
+		</div>
+		<p class="lead">A career story shaped by product teams, backend systems, independent client work, and teaching what he learns.</p>
+	</div>
+	<div class="experience-list" data-reveal>
+		{roles.map((item, index) => (
+			<article class="experience-item">
+				<button
+					class="experience-button"
+					type="button"
+					aria-expanded="false"
+					aria-controls={`experience-detail-${index}`}
+					data-experience-button
+				>
+					<span class="experience-index">0{index + 1}</span>
+					<span class="experience-role">{item.role}</span>
+					<span class="experience-company">{item.company}</span>
+					<span class="experience-date">{item.date}</span>
+					<span class="expand-icon" aria-hidden="true">+</span>
+				</button>
+				<div class="experience-detail" id={`experience-detail-${index}`} aria-hidden="true" data-experience-detail>
+					<div class="experience-detail-clip">
+						<div class="experience-detail-inner">
+							<p><strong>{item.company}</strong> · {item.detail}</p>
+						</div>
+					</div>
+				</div>
+			</article>
+		))}
+	</div>
+</section>

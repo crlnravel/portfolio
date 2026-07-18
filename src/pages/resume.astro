@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/resume.css';
+---
+
+<Layout
+	title="Résumé — Carleano Ravelza Wongso"
+	description="Résumé of Carleano Ravelza Wongso, software engineer and computer science student in Jakarta."
+	canonicalPath="/resume/"
+>
+	<header class="resume-topbar">
+		<div class="resume-topbar-inner">
+			<a class="resume-control" href="/">← Back to portfolio</a>
+			<button class="resume-control" type="button" data-print-resume>Print / save PDF</button>
+		</div>
+	</header>
+	<main class="resume-page">
+		<header class="resume-masthead">
+			<div>
+				<h1>Carleano Ravelza Wongso</h1>
+				<p class="resume-role">Software Engineer · AI Builder · Computer Science Student</p>
+				<p class="resume-summary">Jakarta-based engineer building scalable web applications, backend systems, cloud infrastructure, and intelligent products. Interested in the decisions that make systems useful, maintainable, and ready to grow.</p>
+			</div>
+			<address class="resume-contact">
+				<span>Jakarta, Indonesia</span>
+				<a href="mailto:carleanoravel@gmail.com">carleanoravel@gmail.com</a>
+				<a href="https://www.linkedin.com/in/carleano-ravelza-wongso/">LinkedIn</a>
+				<a href="https://github.com/crlnravel">github.com/crlnravel</a>
+			</address>
+		</header>
+
+		<section class="resume-section">
+			<h2 class="resume-section-label">Experience</h2>
+			<div class="resume-entries">
+				<article class="resume-entry"><div><h3>Developer</h3><div class="resume-org">Apple Developer Academy</div></div><time>Mar 2026 — Present</time><p>Designs and develops native Apple-platform applications using SwiftUI, supported by user research, rapid prototyping, usability testing, and multidisciplinary collaboration.</p></article>
+				<article class="resume-entry"><div><h3>Software Engineer Intern</h3><div class="resume-org">QuorumAI</div></div><time>Mar — Nov 2025</time><p>Built production backend services in Go for AI-powered meeting workflows, shaped REST APIs and microservices, and optimized PostgreSQL paths that contributed to an approximate 40% reduction in API latency.</p></article>
+				<article class="resume-entry"><div><h3>Web Developer</h3><div class="resume-org">Freelance</div></div><time>Jun 2024 — Present</time><p>Delivers projects end to end, from direct client discovery and requirement analysis to maintainable implementation, deployment, and iteration.</p></article>
+				<article class="resume-entry"><div><h3>AI / ML Mentor</h3><div class="resume-org">Pusilkom UI × PT Medco Energi Internasional Tbk</div></div><time>Nov — Dec 2025</time><p>Mentored professionals through applied AI and machine-learning projects, focusing on experimentation, model evaluation, and business relevance.</p></article>
+			</div>
+		</section>
+
+		<section class="resume-section">
+			<h2 class="resume-section-label">Education</h2>
+			<div class="resume-entries"><article class="resume-entry"><div><h3>Computer Science</h3><div class="resume-org">Universitas Indonesia</div></div><p>Academic interests include software architecture, distributed systems, artificial intelligence, machine learning, product development, and developer experience.</p></article></div>
+		</section>
+
+		<section class="resume-section">
+			<h2 class="resume-section-label">Selected work</h2>
+			<div class="resume-projects">
+				<article class="resume-project"><h3>Lookals</h3><p>Human-centered, group-based native Apple-platform tour for helping newcomers build belonging through active participation.</p></article>
+				<article class="resume-project"><h3>Trisurya</h3><p>Multilingual omnichannel chatbot using GPT APIs, RAG, Neo4j, PostgreSQL, and context-aware retrieval; presented at an IEEE conference.</p></article>
+				<article class="resume-project"><h3>COMPFEST Infrastructure</h3><p>Engineering leadership for platforms serving 2,000+ daily users, with CI/CD and automation work reducing deployment time by approximately 40%.</p></article>
+			</div>
+		</section>
+
+		<section class="resume-section">
+			<h2 class="resume-section-label">Recognition</h2>
+			<div class="resume-entries">
+				<article class="resume-entry"><div><h3>1st Place · Web Application Competition</h3><div class="resume-org">Politeknik Negeri Semarang</div></div><time>2025</time></article>
+				<article class="resume-entry"><div><h3>2nd Place · FindIT Hackathon</h3><div class="resume-org">Universitas Gadjah Mada</div></div><time>2025</time></article>
+			</div>
+		</section>
+
+		<section class="resume-section">
+			<h2 class="resume-section-label">Capabilities</h2>
+			<div class="resume-skills">
+				<div class="resume-skill"><h3>Software engineering</h3><p>Go, TypeScript, Java, SQL, NoSQL, Redis, REST APIs, software architecture</p></div>
+				<div class="resume-skill"><h3>AI & machine learning</h3><p>OpenAI API, RAG, LangChain, YOLO, NeRF, Stable Diffusion</p></div>
+				<div class="resume-skill"><h3>Cloud & infrastructure</h3><p>Docker, Kubernetes, GitHub Actions, CI/CD, AWS, GCP, Tencent Cloud</p></div>
+			</div>
+		</section>
+		<footer class="resume-footnote"><span>Carleano Ravelza Wongso</span><span>Designed for screen and A4 printing.</span></footer>
+	</main>
+	<script>
+		document.querySelector('[data-print-resume]')?.addEventListener('click', () => window.print());
+	</script>
+</Layout>
