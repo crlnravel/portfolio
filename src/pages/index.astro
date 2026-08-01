@@ -2,6 +2,7 @@
 import Arrow from '../components/Arrow.astro';
 import Experience from '../components/Experience.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import TechMarquee from '../components/TechMarquee.astro';
 import Work from '../components/Work.astro';
 import Layout from '../layouts/Layout.astro';
 ---
@@ -17,14 +18,12 @@ import Layout from '../layouts/Layout.astro';
 		<section class="hero shell" id="home" data-section>
 			<div class="hero-grid">
 				<div class="hero-copy hero-enter">
-					<div class="hero-kicker"><span>Carleano Ravelza Wongso</span><span>Jakarta · Indonesia</span></div>
-					<h1 class="display">I build thoughtful software for <em>people</em>, systems, and ideas that deserve to scale.</h1>
+					<h1 class="display">I build software that stays reliable as <em>ideas</em> become products.</h1>
 				</div>
 				<div class="hero-side hero-enter hero-enter-delay">
 					<div>
-						<p class="hero-intro">Software engineer and computer science student exploring scalable systems, intelligent products, and technology that stays useful to the people around it.</p>
 						<div class="hero-actions">
-							<a class="button button-primary" href="#work">Explore my work <Arrow /></a>
+							<a class="button button-primary" href="#work">View selected work <Arrow /></a>
 							<a class="button" href="/resume/">View résumé</a>
 						</div>
 						<div class="social-row">
@@ -36,43 +35,35 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 		</section>
 
+		<section class="section shell about section-rule" id="about" data-section>
+			<div class="about-grid" data-reveal>
+				<figure class="about-portrait">
+					<img src="/Ravel Profile.jpg" alt="Carleano Ravelza Wongso" loading="lazy" />
+				</figure>
+				<div class="about-copy">
+					<span class="eyebrow">02 · About</span>
+          <h2 class="section-title">Hi, I'm Carl. I love to move fast and break things!</h2>
+					<p>Computer science student at Universitas Indonesia and software engineer building scalable web applications, backend systems, and AI-powered products with a focus on reliability and user experience.
+
+</p>
+				</div>
+			</div>
+		</section>
+
 		<Experience />
+		<TechMarquee />
 		<Work />
 
 		<section class="section shell" id="recognition" data-section>
 			<div data-reveal>
-				<span class="eyebrow">04 · Recognition & capabilities</span>
-				<h2 class="section-title">Signals of craft, kept in proportion.</h2>
+				<span class="eyebrow">05 · Achievements</span>
+				<h2 class="section-title">Selected achievements.</h2>
 			</div>
 			<div class="recognition-layout" data-reveal>
-				<p class="lead">Recognition matters most when it points back to the team, the decisions, and the work that held up under pressure.</p>
+				<p class="lead">Competitions taught me how to solve problems under pressure, collaborate with teams, and turn ideas into working products.</p>
 				<div class="award-list">
 					<div class="award"><span class="award-place">1st</span><div><div class="award-name">Web Application Competition</div><div class="award-org">Politeknik Negeri Semarang</div></div><span class="award-year">2025</span></div>
 					<div class="award"><span class="award-place">2nd</span><div><div class="award-name">FindIT Hackathon</div><div class="award-org">Universitas Gadjah Mada</div></div><span class="award-year">2025</span></div>
-				</div>
-			</div>
-			<div class="capabilities" data-reveal>
-				<div class="capabilities-intro">
-					<span class="eyebrow">How I build</span>
-					<h3>I work across the whole path from product idea to reliable system.</h3>
-					<p>My strongest work connects product thinking with backend engineering: understanding the problem, shaping an architecture teams can maintain, building the API and data layer, then creating the delivery infrastructure that keeps iteration calm. In AI products, I focus on retrieval, evaluation, and useful context—not adding a model where conventional software would be clearer.</p>
-				</div>
-				<div class="capability-index" aria-label="Technical capabilities">
-					<div class="capability-row">
-						<span class="capability-number">01</span>
-						<div><h4>Product & software systems</h4><p>Backend services, maintainable APIs, data modeling, and architecture that gives teams a clear path to extend the product.</p></div>
-						<p class="capability-tools">Go · TypeScript · Java · REST APIs · SQL · NoSQL · Redis</p>
-					</div>
-					<div class="capability-row">
-						<span class="capability-number">02</span>
-						<div><h4>AI engineering</h4><p>Context-aware intelligent products built around retrieval, experimentation, and choosing the right model or conventional system for the job.</p></div>
-						<p class="capability-tools">OpenAI API · RAG · LangChain · YOLO · NeRF · Stable Diffusion</p>
-					</div>
-					<div class="capability-row">
-						<span class="capability-number">03</span>
-						<div><h4>Delivery & infrastructure</h4><p>Cloud and delivery systems that reduce friction, make deployments repeatable, and keep production work observable and dependable.</p></div>
-						<p class="capability-tools">Docker · Kubernetes · GitHub Actions · CI/CD · AWS · GCP · Tencent Cloud</p>
-					</div>
 				</div>
 			</div>
 		</section>
@@ -80,18 +71,18 @@ import Layout from '../layouts/Layout.astro';
 		<section class="contact" id="contact" data-section>
 			<div class="section shell contact-layout">
 				<div data-reveal>
-					<span class="eyebrow">05 · Contact</span>
-					<h2 class="contact-title">Have an interesting problem, product, or idea?</h2>
-					<a class="button button-primary" href="mailto:carleanoravel@gmail.com">Start a conversation <Arrow /></a>
+					<span class="eyebrow">06 · Contact</span>
+					<h2 class="contact-title">Have an idea worth building?</h2>
+					<a class="button button-primary" href="mailto:carleanoravel@gmail.com">Get in touch <Arrow /></a>
 				</div>
 				<aside class="contact-side" data-reveal>
-					<p>I’d love to hear about software engineering roles, AI products, backend and platform work, collaborative projects, or the technology idea you cannot stop thinking about.</p>
+					<p>I’m always interested in software engineering opportunities, ambitious products, and conversations about systems, AI, and developer tools.</p>
 					<div class="contact-links">
 						<a href="mailto:carleanoravel@gmail.com"><span>carleanoravel@gmail.com</span><span>↗</span></a>
 						<a href="https://www.linkedin.com/in/carleano-ravelza-wongso/" target="_blank" rel="noreferrer"><span>LinkedIn</span><span>↗</span></a>
 						<a href="https://github.com/crlnravel" target="_blank" rel="noreferrer"><span>GitHub</span><span>↗</span></a>
 						<a href="/resume/"><span>Résumé</span><span>→</span></a>
-						<span class="contact-location">Jakarta, Indonesia</span>
+						<span class="contact-location">Based in Jakarta, Indonesia</span>
 					</div>
 				</aside>
 			</div>

@@ -1,0 +1,47 @@
+---
+import spriteUrl from '@dev.icons/core/sprite?url';
+
+const icons = [
+	{ slug: 'swift', label: 'Swift' },
+	{ slug: 'go', label: 'Go' },
+	{ slug: 'typescript-icon', label: 'TypeScript' },
+	{ slug: 'java', label: 'Java' },
+	{ slug: 'postgresql', label: 'PostgreSQL' },
+	{ slug: 'redis-icon', label: 'Redis' },
+	{ slug: 'openai-icon', label: 'OpenAI' },
+	{ slug: 'langchain', label: 'LangChain' },
+	{ slug: 'docker-icon', label: 'Docker' },
+	{ slug: 'kubernetes', label: 'Kubernetes' },
+	{ slug: 'github-actions', label: 'GitHub Actions' },
+	{ slug: 'aws', label: 'AWS' },
+	{ slug: 'google-cloud', label: 'Google Cloud' },
+];
+---
+
+<section class="tech-marquee-section mb-40" aria-labelledby="tech-marquee-title" data-reveal>
+	<div class="shell">
+		<h2 class="eyebrow tech-marquee-title" id="tech-marquee-title">Technology I used</h2>
+		<div class="tech-marquee-window">
+			<div class="tech-marquee-track">
+				<div class="tech-marquee-set" role="list" aria-label="Technology tools">
+					{icons.map((icon) => (
+						<div class="tech-logo" role="listitem" title={icon.label}>
+							<svg viewBox="0 0 128 128" role="img" aria-label={`${icon.label} logo`}>
+								<use href={`${spriteUrl}#${icon.slug}`}></use>
+							</svg>
+						</div>
+					))}
+				</div>
+				<div class="tech-marquee-set" aria-hidden="true">
+					{icons.map((icon) => (
+						<div class="tech-logo" title={icon.label}>
+							<svg viewBox="0 0 128 128" aria-hidden="true">
+								<use href={`${spriteUrl}#${icon.slug}`}></use>
+							</svg>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,7 +1,7 @@
 ---
 const roles = [
 	{
-		role: 'Developer',
+		role: 'Product Researcher & Developer',
 		company: 'Apple Developer Academy',
 		date: 'Mar 2026 — Present',
 		detail: 'Designing and developing native Apple-platform applications with SwiftUI. The work moves through user research, rapid prototypes, usability tests, and close collaboration with multidisciplinary teams.',
@@ -30,10 +30,10 @@ const roles = [
 <section class="section shell section-rule" id="experience" data-section>
 	<div class="experience-head" data-reveal>
 		<div>
-			<span class="eyebrow">02 · Experience</span>
-			<h2 class="section-title">Learning in public. Building in production.</h2>
+			<span class="eyebrow">03 · Experience</span>
+			<h2 class="section-title">Built through shipping, not just studying.</h2>
 		</div>
-		<p class="lead">A career story shaped by product teams, backend systems, independent client work, and teaching what he learns.</p>
+		<p class="lead">From student organizations to startups, every role has been an opportunity to solve larger problems, collaborate with talented people, and build software that reaches real users.</p>
 	</div>
 	<div class="experience-list" data-reveal>
 		{roles.map((item, index) => (
@@ -46,8 +46,8 @@ const roles = [
 					data-experience-button
 				>
 					<span class="experience-index">0{index + 1}</span>
-					<span class="experience-role">{item.role}</span>
-					<span class="experience-company">{item.company}</span>
+					<span class="experience-role">{item.company}</span>
+					<span class="experience-company">{item.role}</span>
 					<span class="experience-date">{item.date}</span>
 					<span class="expand-icon" aria-hidden="true">+</span>
 				</button>

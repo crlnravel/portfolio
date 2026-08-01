@@ -1,16 +1,25 @@
 ---
 import Arrow from './Arrow.astro';
 
-const sections = ['home', 'experience', 'work', 'recognition', 'contact'];
+const sections = [
+	{ id: 'home', label: 'Home' },
+	{ id: 'about', label: 'About' },
+	{ id: 'experience', label: 'Experience' },
+	{ id: 'work', label: 'Projects' },
+	{ id: 'recognition', label: 'Achievements' },
+	{ id: 'contact', label: 'Contact' },
+];
 ---
 
 <header class="site-header" data-header>
 	<div class="shell nav">
-		<a class="wordmark" href="#home" aria-label="Carleano home">Carleano.</a>
+		<a class="wordmark" href="#home" aria-label="Carleano home">
+			<img src="/logo.svg" alt="Carleano" />
+		</a>
 		<nav class="nav-links" aria-label="Primary navigation">
 			{sections.map((item) => (
-				<a class="nav-link" href={`#${item}`} data-nav-link={item}>
-					<span>{item[0].toUpperCase() + item.slice(1)}</span>
+				<a class="nav-link" href={`#${item.id}`} data-nav-link={item.id}>
+					<span>{item.label}</span>
 				</a>
 			))}
 		</nav>
@@ -34,11 +43,11 @@ const sections = ['home', 'experience', 'work', 'recognition', 'contact'];
 <nav id="mobile-navigation" class="mobile-menu" aria-label="Mobile navigation" aria-hidden="true" inert data-mobile-menu>
 	<div class="mobile-links">
 		{sections.map((item, index) => (
-			<a href={`#${item}`} data-mobile-link>
-				<span>{item[0].toUpperCase() + item.slice(1)}</span>
+			<a href={`#${item.id}`} data-mobile-link>
+				<span>{item.label}</span>
 				<small class="mono">0{index + 1}</small>
 			</a>
 		))}
 	</div>
-	<div class="mobile-meta">Jakarta, Indonesia · software engineering · AI systems</div>
+	<div class="mobile-meta">Based in Jakarta, Indonesia · software engineering · AI systems</div>
 </nav>

@@ -11,6 +11,9 @@ importers:
       '@astrojs/react':
         specifier: ^6.0.1
         version: 6.0.1(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(esbuild@0.28.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      '@dev.icons/core':
+        specifier: ^1.1.0
+        version: 1.1.0
       '@tailwindcss/vite':
         specifier: ^4.3.3
         version: 4.3.3(vite@8.1.5(esbuild@0.28.1)(jiti@2.7.0))
@@ -266,6 +269,9 @@ packages:
   '@clack/prompts@1.7.0':
     resolution: {integrity: sha512-y7/yvZ2TPAnR9+jnc00klvNNLkJiXFFrQA/hlLCcxA9a2A4zQIOimyFQ9XfwYKiGD1fb5GY8vbKIIgO8d5Tb2A==}
     engines: {node: '>= 20.12.0'}
+
+  '@dev.icons/core@1.1.0':
+    resolution: {integrity: sha512-3hJId3kVO2HY9V+gpiJ5p0S3WWt9BktGTOQ9c9PaJt1EXGfdqV/ngq/+E9qPCWmDXJzKWtJaLryobzoKsyAc5A==}
 
   '@emnapi/core@1.11.1':
     resolution: {integrity: sha512-RSvbQmHzdKzNsLYa/wHrbc3KN4sYLKAdPZxqiM2HATqv/SBk2/ENSHpvXGaLOMcsAyz0poEGqkmmKYG3OWiJEQ==}
@@ -2011,6 +2017,8 @@ snapshots:
       fast-string-width: 3.0.2
       fast-wrap-ansi: 0.2.2
       sisteransi: 1.0.5
+
+  '@dev.icons/core@1.1.0': {}
 
   '@emnapi/core@1.11.1':
     dependencies:
