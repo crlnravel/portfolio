@@ -30,7 +30,6 @@ const canonicalUrl = new URL(canonicalPath, 'https://carlravel.tech');
 		<meta name="twitter:card" content="summary" />
 		<link rel="canonical" href={canonicalUrl} />
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-		<link rel="icon" href="/favicon.ico" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400..700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -39,5 +38,8 @@ const canonicalUrl = new URL(canonicalPath, 'https://carlravel.tech');
 	</head>
 	<body>
 		<slot />
-	</body>
+	<!-- impeccable-live-start -->
+<script is:inline src="http://localhost:8400/live.js?token=c2164613-3e43-46ca-9258-9d7576c6b8b5"></script>
+<!-- impeccable-live-end -->
+</body>
 </html>

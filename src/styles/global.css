@@ -300,13 +300,20 @@ figure {
 .progress-rail {
   position: fixed;
   z-index: 25;
-  left: max(16px, calc((100vw - 1390px) / 2));
+  left: max(0px, calc((100vw - 1390px) / 2));
   top: 120px;
   bottom: 72px;
   width: 32px;
   display: flex;
   justify-content: center;
   pointer-events: none;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 240ms var(--ease), visibility 0s linear 240ms;
+}
+.progress-rail.is-idle {
+  opacity: 0;
+  visibility: hidden;
 }
 .rail-line {
   width: 1px;
@@ -813,7 +820,7 @@ figure {
   max-width: 920px;
   margin: 20px 0 36px;
   font-family: var(--font-display);
-  font-size: clamp(54px, 7.5vw, 104px);
+  font-size: clamp(54px, 7.5vw, 96px);
   font-weight: 570;
   line-height: 0.92;
   letter-spacing: -0.045em;

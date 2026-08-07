@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-01T17:04:37Z",
+  "title": "Design System: Carleano Ravelza Wongso Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Deep olive ink",
+        "canonical": "oklch(0.364 0.042 115.66)",
+        "tonalRamp": [
+          "oklch(0.15 0.042 115.66)",
+          "oklch(0.25 0.042 115.66)",
+          "oklch(0.364 0.042 115.66)",
+          "oklch(0.47 0.042 115.66)",
+          "oklch(0.58 0.042 115.66)",
+          "oklch(0.69 0.042 115.66)",
+          "oklch(0.82 0.042 115.66)",
+          "oklch(0.95 0.042 115.66)"
+        ]
+      },
+      "neutral-bg": {
+        "role": "neutral",
+        "displayName": "Pale linden field",
+        "canonical": "oklch(0.8759 0.0949 114.74)",
+        "tonalRamp": [
+          "oklch(0.15 0.0949 114.74)",
+          "oklch(0.25 0.0949 114.74)",
+          "oklch(0.36 0.0949 114.74)",
+          "oklch(0.48 0.0949 114.74)",
+          "oklch(0.60 0.0949 114.74)",
+          "oklch(0.72 0.0949 114.74)",
+          "oklch(0.82 0.0949 114.74)",
+          "oklch(0.95 0.0949 114.74)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Sage surface",
+        "canonical": "oklch(0.792 0.0586 114.21)",
+        "tonalRamp": [
+          "oklch(0.15 0.0586 114.21)",
+          "oklch(0.25 0.0586 114.21)",
+          "oklch(0.36 0.0586 114.21)",
+          "oklch(0.48 0.0586 114.21)",
+          "oklch(0.60 0.0586 114.21)",
+          "oklch(0.70 0.0586 114.21)",
+          "oklch(0.82 0.0586 114.21)",
+          "oklch(0.95 0.0586 114.21)"
+        ]
+      },
+      "muted-ink": {
+        "role": "neutral",
+        "displayName": "Muted olive ink",
+        "canonical": "oklch(0.41 0.05 115.7)",
+        "tonalRamp": [
+          "oklch(0.15 0.05 115.7)",
+          "oklch(0.25 0.05 115.7)",
+          "oklch(0.41 0.05 115.7)",
+          "oklch(0.50 0.05 115.7)",
+          "oklch(0.62 0.05 115.7)",
+          "oklch(0.73 0.05 115.7)",
+          "oklch(0.84 0.05 115.7)",
+          "oklch(0.95 0.05 115.7)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Olive accent line",
+        "canonical": "oklch(0.507 0.0838 115.77)",
+        "tonalRamp": [
+          "oklch(0.15 0.0838 115.77)",
+          "oklch(0.25 0.0838 115.77)",
+          "oklch(0.36 0.0838 115.77)",
+          "oklch(0.51 0.0838 115.77)",
+          "oklch(0.62 0.0838 115.77)",
+          "oklch(0.73 0.0838 115.77)",
+          "oklch(0.84 0.0838 115.77)",
+          "oklch(0.95 0.0838 115.77)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Archivo Display",
+        "purpose": "Hero statements and résumé masthead headlines."
+      },
+      "body": {
+        "displayName": "Source Sans 3 Body",
+        "purpose": "Readable explanatory copy and project descriptions."
+      },
+      "label": {
+        "displayName": "IBM Plex Mono Labels",
+        "purpose": "Section eyebrows, dates, facts, and technical annotations."
+      }
+    },
+    "shadows": [
+      {
+        "name": "button-rest",
+        "value": "0 1px 0 oklch(0.364 0.042 115.66 / 0.12)",
+        "purpose": "A minimal contact shadow under resting pill controls."
+      },
+      {
+        "name": "button-hover",
+        "value": "0 8px 20px oklch(0.364 0.042 115.66 / 0.18)",
+        "purpose": "A soft tactile lift applied to hovered buttons."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+        "purpose": "Shared easing for control, reveal, and layout transitions."
+      },
+      {
+        "name": "quick-state",
+        "value": "150ms",
+        "purpose": "Button, link, and hover state changes."
+      },
+      {
+        "name": "reveal",
+        "value": "700ms",
+        "purpose": "Initial hero entrance and scroll-triggered reveal."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1100px"
+      },
+      {
+        "name": "tablet",
+        "value": "820px"
+      },
+      {
+        "name": "mobile",
+        "value": "600px"
+      },
+      {
+        "name": "resume-mobile",
+        "value": "700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The main action: dark olive pill, readable sage label, and a small arrow that moves on hover.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#work\">View selected work <svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M3 10h13M11 5l5 5-5 5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a>",
+      "css": ".ds-btn-primary { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0 19px; border: 1px solid oklch(0.364 0.042 115.66); border-radius: 999px; background: oklch(0.364 0.042 115.66); color: oklch(0.792 0.0586 114.21); font: 600 14px/1 Source Sans 3, sans-serif; letter-spacing: 0.02em; text-decoration: none; cursor: pointer; box-shadow: 0 1px 0 oklch(0.364 0.042 115.66 / 0.12); transition: transform 150ms cubic-bezier(0.2, 0.8, 0.2, 1), background 150ms cubic-bezier(0.2, 0.8, 0.2, 1), color 150ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 150ms cubic-bezier(0.2, 0.8, 0.2, 1); } .ds-btn-primary svg { width: 17px; height: 17px; transition: transform 150ms cubic-bezier(0.2, 0.8, 0.2, 1); } .ds-btn-primary:hover { transform: translateY(-2px); background: oklch(0.364 0.042 115.66); box-shadow: 0 8px 20px oklch(0.364 0.042 115.66 / 0.18); } .ds-btn-primary:hover svg { transform: translateX(3px); } .ds-btn-primary:focus-visible { outline: 3px solid oklch(0.507 0.0838 115.77); outline-offset: 4px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "A lower-emphasis path that stays open against the linden field while retaining the same tactile silhouette.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"/resume/\">View résumé</a>",
+      "css": ".ds-btn-secondary { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 0 19px; border: 1px solid oklch(0.364 0.042 115.66); border-radius: 999px; background: transparent; color: oklch(0.364 0.042 115.66); font: 600 14px/1 Source Sans 3, sans-serif; letter-spacing: 0.02em; text-decoration: none; cursor: pointer; transition: transform 150ms cubic-bezier(0.2, 0.8, 0.2, 1), background 150ms cubic-bezier(0.2, 0.8, 0.2, 1), color 150ms cubic-bezier(0.2, 0.8, 0.2, 1); } .ds-btn-secondary:hover { transform: translateY(-2px); background: oklch(0.364 0.042 115.66); color: oklch(0.792 0.0586 114.21); } .ds-btn-secondary:focus-visible { outline: 3px solid oklch(0.507 0.0838 115.77); outline-offset: 4px; }"
+    },
+    {
+      "name": "Primary Navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "A sticky, centered anchor nav with quiet active underlines and a right-aligned conversation CTA.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Primary navigation\"><a class=\"ds-wordmark\" href=\"#home\">VEL.</a><div class=\"ds-nav-links\"><a class=\"ds-nav-link ds-active\" href=\"#home\">Home</a><a class=\"ds-nav-link\" href=\"#work\">Projects</a></div><a class=\"ds-btn-primary\" href=\"#contact\">Let's talk</a></nav>",
+      "css": ".ds-nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 20px; background: oklch(0.8759 0.0949 114.74 / 0.88); color: oklch(0.364 0.042 115.66); backdrop-filter: blur(16px); } .ds-wordmark { color: oklch(0.364 0.042 115.66); font: 700 14px/1 Archivo, sans-serif; letter-spacing: -0.04em; text-decoration: none; } .ds-nav-links { display: flex; align-items: center; gap: 4px; } .ds-nav-link { position: relative; min-height: 44px; display: inline-flex; align-items: center; padding: 0 13px; color: oklch(0.41 0.05 115.7); font: 600 13px/1 Source Sans 3, sans-serif; text-decoration: none; } .ds-nav-link::after { content: \"\"; position: absolute; right: 13px; bottom: 8px; left: 13px; height: 1px; background: oklch(0.364 0.042 115.66); transform: scaleX(0); transform-origin: left; transition: transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1); } .ds-nav-link:hover, .ds-nav-link.ds-active { color: oklch(0.364 0.042 115.66); } .ds-nav-link:hover::after, .ds-nav-link.ds-active::after { transform: scaleX(1); }"
+    },
+    {
+      "name": "Experience Row",
+      "kind": "custom",
+      "refersTo": "experience-row",
+      "description": "An open, rule-divided work row that reveals detail without hiding the scan-friendly employer, role, and date structure.",
+      "html": "<button class=\"ds-experience-row\" type=\"button\"><span class=\"ds-index\">01</span><span class=\"ds-company\">QuorumAI</span><span class=\"ds-role\">Software Engineer Intern</span><span class=\"ds-date\">2025</span><span class=\"ds-expand\">+</span></button>",
+      "css": ".ds-experience-row { width: 100%; min-height: 112px; display: grid; grid-template-columns: 70px minmax(0, 2fr) minmax(140px, 1fr) minmax(130px, 1fr) auto; gap: 24px; align-items: center; padding: 22px 0; border: 0; border-bottom: 1px solid oklch(0.507 0.0838 115.77); background: transparent; color: oklch(0.364 0.042 115.66); text-align: left; cursor: pointer; transition: background 150ms cubic-bezier(0.2, 0.8, 0.2, 1); } .ds-experience-row:hover { background: oklch(0.792 0.0586 114.21 / 0.62); } .ds-index, .ds-date { color: oklch(0.41 0.05 115.7); font: 11px/1.4 IBM Plex Mono, monospace; } .ds-company { font: 550 clamp(24px, 2.5vw, 35px)/1.08 Archivo, sans-serif; letter-spacing: -0.025em; } .ds-role { color: oklch(0.41 0.05 115.7); font: 13px/1.4 Source Sans 3, sans-serif; } .ds-expand { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid oklch(0.507 0.0838 115.77); border-radius: 50%; font: 22px/1 Source Sans 3, sans-serif; transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1); } .ds-experience-row:hover .ds-company { transform: translateX(4px); }"
+    },
+    {
+      "name": "Project Tab",
+      "kind": "custom",
+      "refersTo": "project-tab",
+      "description": "A dark-chapter project selector: large work names, mono numbering, and a minimal active mark beside the evidence panel.",
+      "html": "<button class=\"ds-project-tab ds-active\" type=\"button\"><span class=\"ds-number\">01</span><span class=\"ds-name\">Lookals</span><span class=\"ds-mark\">↗</span></button>",
+      "css": ".ds-project-tab { width: 100%; min-height: 92px; display: grid; grid-template-columns: 40px 1fr auto; gap: 10px; align-items: center; padding: 18px 0; border: 0; border-bottom: 1px solid oklch(0.8759 0.0949 114.74 / 0.2); background: transparent; color: oklch(0.8759 0.0949 114.74); text-align: left; cursor: pointer; transition: color 150ms cubic-bezier(0.2, 0.8, 0.2, 1), background 150ms cubic-bezier(0.2, 0.8, 0.2, 1); } .ds-project-tab:hover { background: oklch(0.8759 0.0949 114.74 / 0.08); } .ds-project-tab.ds-active { color: oklch(0.8759 0.0949 114.74); } .ds-number { font: 10px/1.4 IBM Plex Mono, monospace; letter-spacing: 0.06em; } .ds-name { font: 550 clamp(22px, 2.4vw, 33px)/1 Archivo, sans-serif; letter-spacing: -0.025em; } .ds-mark { font: 18px/1 Source Sans 3, sans-serif; } .ds-project-tab:focus-visible { outline: 3px solid oklch(0.8759 0.0949 114.74); outline-offset: -3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Systems Field Guide",
+    "overview": "This visual system treats the portfolio as a field guide to work that has shipped. It is calm and precise enough for a technical reader to scan, but warm enough to keep the person behind the systems visible. The pale linden canvas, deep olive ink, oversized sans-serif headlines, and compact mono labels make the interface feel like a carefully annotated record rather than a generic startup landing page.\n\nThe composition stays spacious and editorial while the controls remain tactile. Hairline rules divide the long-form story, a dark project band gives the work a distinct chapter, and small translations, shadows, and expanding rows make interaction feel present without becoming decorative. Future screens should preserve this balance: confident structure, human copy, and evidence-first emphasis.",
+    "keyCharacteristics": [
+      "Pale linden field with deep olive ink and a muted botanical accent range.",
+      "Oversized Archivo display type paired with Source Sans 3 body copy and IBM Plex Mono metadata.",
+      "Twelve-column desktop compositions, thin section rules, and generous vertical breathing room.",
+      "Pill-shaped actions with small lift and arrow motion; circular controls for compact toggles.",
+      "A dark project chapter and restrained multiply-tinted imagery that let proof carry the visual weight."
+    ],
+    "rules": [
+      {
+        "name": "The Single-Family Rule",
+        "body": "Keep new color decisions inside the existing yellow-green/olive family unless a future product decision explicitly changes the visual world.",
+        "section": "colors"
+      },
+      {
+        "name": "The Headline-First Rule",
+        "body": "Let one oversized statement establish the section before supporting copy explains it; do not flatten the hierarchy into equal-sized cards or labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The Chapter Rule",
+        "body": "Use spacing and rules to separate narrative chapters; do not turn every content block into a floating card.",
+        "section": "layout"
+      },
+      {
+        "name": "The Tactile-Only Rule",
+        "body": "Use elevation as feedback for an action or state, never as decoration on passive content.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep the pale linden, sage, deep olive, and accent-line roles coherent across new surfaces.",
+      "Do give each section one clear typographic lead and let supporting copy remain readable and human.",
+      "Do use thin rules, open layouts, and dark chapter bands to organize long-form evidence.",
+      "Do make actions feel tactile through pill geometry, clear focus, and small purposeful motion.",
+      "Do preserve the warm, technically literate voice of a field guide to shipped work."
+    ],
+    "donts": [
+      "Don't introduce generic startup SaaS tropes such as glossy gradient hero treatments, glass cards, or dashboard-like UI chrome.",
+      "Don't add unrelated hues or persistent shadows that compete with the single-family palette and tonal depth.",
+      "Don't turn every experience, project, or achievement into a rounded card grid; the incumbent system is defined by open rows and rules.",
+      "Don't let the technology marquee, decorative motion, or imagery overpower the evidence and the person behind it."
+    ]
+  }
+}

@@ -67,7 +67,7 @@ const projects = [
 			</div>
 			<div class="project-panels">
 				{projects.map((project, index) => (
-					<article
+					<div
 						id={`project-panel-${index}`}
 						class:list={['project-panel', { active: index === 0 }]}
 						role="tabpanel"
@@ -80,7 +80,8 @@ const projects = [
 							<img
 								class="project-image"
 								src="/projects/LookalsPresentation.jpeg"
-								alt={`${project.name} project presentation placeholder`}
+								alt=""
+								aria-hidden="true"
 								loading={index === 0 ? 'eager' : 'lazy'}
 							/>
 						</div>
@@ -96,7 +97,7 @@ const projects = [
 								<div><dt>Tech</dt><dd>{project.tech}</dd></div>
 							</dl>
 						</div>
-					</article>
+					</div>
 				))}
 			</div>
 		</div>

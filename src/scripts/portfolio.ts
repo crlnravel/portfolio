@@ -2,12 +2,20 @@ const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-sectio
 const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]'));
 const header = document.querySelector<HTMLElement>('[data-header]');
 const progress = document.querySelector<HTMLElement>('[data-progress]');
+const progressRail = progress?.closest<HTMLElement>('.progress-rail');
 const menuButton = document.querySelector<HTMLButtonElement>('[data-menu-button]');
 const mobileMenu = document.querySelector<HTMLElement>('[data-mobile-menu]');
 const mobileLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-mobile-link]'));
 
+let progressHideTimeout: number | undefined;
+
 function setActiveSection(id: string) {
-	navLinks.forEach((link) => link.classList.toggle('active', link.dataset.navLink === id));
+	navLinks.forEach((link) => {
+		const active = link.dataset.navLink === id;
+		link.classList.toggle('active', active);
+		if (active) link.setAttribute('aria-current', 'location');
+		else link.removeAttribute('aria-current');
+	});
 }
 
 const sectionObserver = new IntersectionObserver(
@@ -20,15 +28,23 @@ const sectionObserver = new IntersectionObserver(
 );
 sections.forEach((section) => sectionObserver.observe(section));
 
-function handleScroll() {
+function updateScrollState() {
 	header?.classList.toggle('scrolled', window.scrollY > 20);
 	const max = document.documentElement.scrollHeight - window.innerHeight;
 	const value = max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
 	progress?.style.setProperty('--progress', `${value}%`);
 }
+
+function handleScroll() {
+	updateScrollState();
+	if (!progressRail) return;
+	progressRail.classList.remove('is-idle');
+	if (progressHideTimeout !== undefined) window.clearTimeout(progressHideTimeout);
+	progressHideTimeout = window.setTimeout(() => progressRail.classList.add('is-idle'), 1000);
+}
 handleScroll();
 window.addEventListener('scroll', handleScroll, { passive: true });
-window.addEventListener('resize', handleScroll, { passive: true });
+window.addEventListener('resize', updateScrollState, { passive: true });
 
 function setMenu(open: boolean) {
 	if (!menuButton || !mobileMenu) return;
