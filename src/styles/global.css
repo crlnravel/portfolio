@@ -710,6 +710,16 @@ figure {
   margin: 0;
   font-size: 12px;
 }
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+}
+.project-links a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
 
 .recognition-layout {
   display: grid;

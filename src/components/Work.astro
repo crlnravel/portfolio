@@ -1,15 +1,33 @@
 ---
 const projects = [
 	{
-		name: 'Lookals',
-		platform: 'Apple platforms',
-		role: 'Product engineering',
-		timeline: 'Product development · 2026',
-		tech: 'SwiftUI · Real-time collaboration',
-		outcome: 'Newcomers become active participants',
-		image: '/projects/LookalsPresentation.jpeg',
+		name: 'QuorumAI',
+		platform: 'Web · Meeting intelligence',
+		role: 'Software Engineer Intern',
+		timeline: 'Mar — Nov 2025',
+		tech: 'Go · PostgreSQL · REST APIs · SSE · Object storage',
+		outcome: '~40% lower average API latency',
+		image: '/projects/quorum-ai-dashboard.png',
+		imageFit: 'contain',
+		website: 'https://quorum-ai.com',
+		copy: 'An LLM-powered meeting management platform that turns real-time recordings into transcripts, summaries, translations, meeting prep, and an interactive AI chat. As a Software Engineer Intern, I built production Go backend services, optimized REST APIs and PostgreSQL queries to reduce average API latency by approximately 40%, and implemented authentication, SSE, and secure object-storage access.',
+	},
+	{
+		name: 'Indonesian ALPR Project',
+		platform: 'Machine learning · Computer vision',
+		role: 'Model development · ML engineering',
+		timeline: 'Independent project',
+		tech: 'YOLO11 · PyTorch · ONNX · TFLite · OpenCV',
+		outcome: '98.84% detector · 98.40% OCR mAP50',
+		image: '/projects/indonesian-alpr-preview.png',
+		imageFit: 'contain',
 		website: null,
-		copy: 'A location-based social experience designed to help newcomers explore unfamiliar places together. Built with SwiftUI and real-time collaboration to encourage meaningful connections through shared exploration.',
+		links: [
+			{ label: 'Hugging Face detector', href: 'https://huggingface.co/carlravel/indonesian-plate-detector-yolo11' },
+			{ label: 'Hugging Face recognizer', href: 'https://huggingface.co/carlravel/indonesian-plate-recognizer-yolo11' },
+			{ label: 'GitHub source', href: 'https://github.com/crlnravel/indonesian-plate-alpr' },
+		],
+		copy: 'An end-to-end two-stage deep learning pipeline for Indonesian vehicle license plate detection and character recognition. The plate detector localizes license-plate regions, while a 36-class YOLO11 recognizer reads 0–9 and A–Z characters and reassembles them into standardized plate strings. The models support PyTorch, ONNX, and TFLite runtimes. On the official validation splits, the detector reached 98.84% mAP@0.5 and the recognizer reached 98.40% mAP@0.5.',
 	},
 	{
 		name: 'Trisurya',
@@ -35,17 +53,6 @@ const projects = [
 		copy: 'COMPFEST is an annual, student-run IT event from the Faculty of Computer Science, Universitas Indonesia, held since 2009 and recognized as Indonesia’s biggest IT event. As Vice PIC (DevOps) in the Software Engineering Division, I led web developers, strengthened software development and deployment practices, built CI/CD pipelines, and automated repetitive operational work.',
 	},
 	{
-		name: 'Systems lab',
-		platform: 'Backend systems',
-		role: 'Backend · Cloud · AI',
-		timeline: 'Ongoing',
-		tech: 'Go · TypeScript · PostgreSQL · Docker · Kubernetes · AWS · GCP',
-		outcome: 'A growing body of systems work',
-		image: '/projects/LookalsPresentation.jpeg',
-		website: null,
-		copy: 'Ongoing work across Go, TypeScript, Java, PostgreSQL, Redis, Docker, Kubernetes, AWS, GCP, Retrieval-Augmented Generation, and applied AI systems—organized around decisions and constraints, not a logo collection.',
-	},
-	{
 		name: 'EduVate',
 		platform: 'Web · Inclusive learning',
 		role: 'Team project',
@@ -57,16 +64,16 @@ const projects = [
 		copy: 'A voice-first learning platform designed to make coursework more accessible for students with visual impairments. EduVate combines voice navigation, audio learning materials, role-aware course management, timed quiz workflows, and AI-assisted content processing with separate student and teacher dashboards.',
 	},
 	{
-		name: 'QuorumAI',
-		platform: 'Web · Meeting intelligence',
-		role: 'Software Engineer Intern',
-		timeline: 'Mar — Nov 2025',
-		tech: 'Go · PostgreSQL · REST APIs · SSE · Object storage',
-		outcome: '~40% lower average API latency',
-		image: '/projects/quorum-ai-dashboard.png',
-		imageFit: 'contain',
-		website: 'https://quorum-ai.com',
-		copy: 'An LLM-powered meeting management platform that turns real-time recordings into transcripts, summaries, translations, meeting prep, and an interactive AI chat. As a Software Engineer Intern, I built production Go backend services, optimized REST APIs and PostgreSQL queries to reduce average API latency by approximately 40%, and implemented authentication, SSE, and secure object-storage access.',
+		name: 'Lookals',
+		platform: 'Apple platforms',
+		role: 'Product engineering',
+		timeline: 'Product development · 2026',
+		tech: 'SwiftUI · Real-time collaboration',
+		outcome: 'Newcomers become active participants',
+		image: '/projects/LookalsPresentation.jpeg',
+		website: null,
+		links: [{ label: 'GitHub', href: 'https://github.com/crlnravel/lookals' }],
+		copy: 'A location-based social experience designed to help newcomers explore unfamiliar places together. Built with SwiftUI and real-time collaboration to encourage meaningful connections through shared exploration.',
 	},
 ];
 ---
@@ -128,6 +135,7 @@ const projects = [
 								<div><dt>Timeline</dt><dd>{project.timeline}</dd></div>
 								<div><dt>Tech</dt><dd>{project.tech}</dd></div>
 								{project.website && <div><dt>Website</dt><dd><a href={project.website} target="_blank" rel="noreferrer" aria-label={`Visit ${project.name} website`}>Visit site ↗</a></dd></div>}
+								{project.links?.length ? <div><dt>Links</dt><dd class="project-links">{project.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer">{link.label} ↗</a>)}</dd></div> : null}
 							</dl>
 						</div>
 					</div>
