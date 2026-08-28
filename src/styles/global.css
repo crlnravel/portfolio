@@ -652,6 +652,10 @@ figure {
   height: 100%;
   object-fit: cover;
 }
+.project-image-contain {
+  object-fit: contain;
+  background: var(--dark-surface);
+}
 .project-visual::after {
   content: "";
   position: absolute;

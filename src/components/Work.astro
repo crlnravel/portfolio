@@ -7,25 +7,32 @@ const projects = [
 		timeline: 'Product development · 2026',
 		tech: 'SwiftUI · Real-time collaboration',
 		outcome: 'Newcomers become active participants',
+		image: '/projects/LookalsPresentation.jpeg',
+		website: null,
 		copy: 'A location-based social experience designed to help newcomers explore unfamiliar places together. Built with SwiftUI and real-time collaboration to encourage meaningful connections through shared exploration.',
 	},
 	{
 		name: 'Trisurya',
-		platform: 'Web · Omnichannel AI',
-		role: 'Research · Systems design',
-		timeline: 'Research project · 2025',
-		tech: 'Neo4j · PostgreSQL · GPT APIs · RAG',
-		outcome: 'Presented at an IEEE conference',
-		copy: 'An LLM-powered chatbot for more accessible public services. Its hybrid knowledge architecture combines Neo4j and PostgreSQL with context-aware retrieval, GPT APIs, and Retrieval-Augmented Generation.',
+		platform: 'Research · E-government AI',
+		role: 'Research · Published paper',
+		timeline: 'Published · IEEE ICIMCIS 2024',
+		tech: 'GPT-4 / GPT-4o · RAG · Neo4j · PostgreSQL',
+		outcome: 'Published at IEEE ICIMCIS 2024',
+		image: '/projects/trisurya-preview.png',
+		imageFit: 'contain',
+		website: null,
+		copy: 'An omnichannel chatbot for government and public-service information in Indonesian, Javanese, Sundanese, and Balinese. Published at the 2024 IEEE International Conference on Informatics, Multimedia, Cyber and Information System (ICIMCIS), the research combines GPT APIs with Retrieval-Augmented Generation, Neo4j, and PostgreSQL to ground its answers. The study found GPT-4o offered similar performance to GPT-4 at lower cost and reported stronger quantitative and qualitative results than several widely used chatbots.',
 	},
 	{
 		name: 'COMPFEST',
-		platform: 'Developer infrastructure',
-		role: 'Engineering leadership',
-		timeline: 'Engineering leadership · 2024–2025',
-		tech: 'CI/CD · Automation · Cloud',
-		outcome: '~40% faster deployments',
-		copy: 'Led or co-led more than ten developers building platforms serving over 2,000 daily users. The work centered on CI/CD design, internal automation, deployment reliability, and making the platform easier for teams to operate.',
+		platform: 'Web · IT event platform',
+		role: 'Vice PIC (DevOps) · Software Engineering',
+		timeline: 'Mar 2025 — Jan 2026',
+		tech: 'CI/CD · GitHub Actions · Automation · Deployment reliability',
+		outcome: 'Led 10+ developers · 2,000+ daily users',
+		image: '/projects/compfest-preview.png',
+		website: null,
+		copy: 'COMPFEST is an annual, student-run IT event from the Faculty of Computer Science, Universitas Indonesia, held since 2009 and recognized as Indonesia’s biggest IT event. As Vice PIC (DevOps) in the Software Engineering Division, I led web developers, strengthened software development and deployment practices, built CI/CD pipelines, and automated repetitive operational work.',
 	},
 	{
 		name: 'Systems lab',
@@ -34,7 +41,32 @@ const projects = [
 		timeline: 'Ongoing',
 		tech: 'Go · TypeScript · PostgreSQL · Docker · Kubernetes · AWS · GCP',
 		outcome: 'A growing body of systems work',
+		image: '/projects/LookalsPresentation.jpeg',
+		website: null,
 		copy: 'Ongoing work across Go, TypeScript, Java, PostgreSQL, Redis, Docker, Kubernetes, AWS, GCP, Retrieval-Augmented Generation, and applied AI systems—organized around decisions and constraints, not a logo collection.',
+	},
+	{
+		name: 'EduVate',
+		platform: 'Web · Inclusive learning',
+		role: 'Team project',
+		timeline: 'Academic project · Universitas Indonesia',
+		tech: 'React Router · NestJS · PostgreSQL · Prisma · Redis · OpenAI · Google TTS',
+		outcome: 'Voice-first access to learning',
+		image: '/projects/eduvate-preview.png',
+		website: null,
+		copy: 'A voice-first learning platform designed to make coursework more accessible for students with visual impairments. EduVate combines voice navigation, audio learning materials, role-aware course management, timed quiz workflows, and AI-assisted content processing with separate student and teacher dashboards.',
+	},
+	{
+		name: 'QuorumAI',
+		platform: 'Web · Meeting intelligence',
+		role: 'Software Engineer Intern',
+		timeline: 'Mar — Nov 2025',
+		tech: 'Go · PostgreSQL · REST APIs · SSE · Object storage',
+		outcome: '~40% lower average API latency',
+		image: '/projects/quorum-ai-dashboard.png',
+		imageFit: 'contain',
+		website: 'https://quorum-ai.com',
+		copy: 'An LLM-powered meeting management platform that turns real-time recordings into transcripts, summaries, translations, meeting prep, and an interactive AI chat. As a Software Engineer Intern, I built production Go backend services, optimized REST APIs and PostgreSQL queries to reduce average API latency by approximately 40%, and implemented authentication, SSE, and secure object-storage access.',
 	},
 ];
 ---
@@ -78,8 +110,8 @@ const projects = [
 					>
 						<div class="project-visual">
 							<img
-								class="project-image"
-								src="/projects/LookalsPresentation.jpeg"
+								class:list={['project-image', { 'project-image-contain': project.imageFit === 'contain' }]}
+								src={project.image}
 								alt=""
 								aria-hidden="true"
 								loading={index === 0 ? 'eager' : 'lazy'}
@@ -95,6 +127,7 @@ const projects = [
 								<div><dt>Role</dt><dd>{project.role}</dd></div>
 								<div><dt>Timeline</dt><dd>{project.timeline}</dd></div>
 								<div><dt>Tech</dt><dd>{project.tech}</dd></div>
+								{project.website && <div><dt>Website</dt><dd><a href={project.website} target="_blank" rel="noreferrer" aria-label={`Visit ${project.name} website`}>Visit site ↗</a></dd></div>}
 							</dl>
 						</div>
 					</div>
