@@ -1,4 +1,4 @@
-#import "@preview/basic-resume:0.2.8": *
+#import "resume.typ": *
 
 #let name = "Carleano Ravelza Wongso"
 #let location = "Jakarta, Indonesia"
