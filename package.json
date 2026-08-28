@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:cv": "typst compile --format pdf _cv/CV.typ public/Resume_CarleanoRavelzaWongso.pdf",
     "preview": "astro preview",
     "astro": "astro",
     "doctor": "npx react-doctor@latest"
