@@ -10,7 +10,7 @@
   phone: "",
   personal-site: "",
   orcid: "",
-  accent-color: "#000000",
+  accent-color: "#44624a",
   font: "New Computer Modern",
   paper: "us-letter",
   author-font-size: 20pt,
@@ -27,6 +27,7 @@
     font: font,
     size: font-size,
     lang: lang,
+    fill: rgb(accent-color),
     // Disable ligatures so ATS systems do not get confused when parsing fonts.
     ligatures: false,
   )
@@ -43,7 +44,7 @@
   // Small caps for section titles
   show heading.where(level: 2): it => [
     #pad(top: 0pt, bottom: -10pt, [#smallcaps(it.body)])
-    #line(length: 100%, stroke: 1pt)
+    #line(length: 100%, stroke: 1pt + rgb(accent-color))
   ]
 
   // Accent Color Styling

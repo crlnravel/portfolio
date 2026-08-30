@@ -2,11 +2,12 @@
 name: "Carleano Ravelza Wongso Portfolio"
 description: "A calm, tactile field guide to reliable software and the work behind it."
 colors:
-  primary: "oklch(0.364 0.042 115.66)"
-  neutral-bg: "oklch(0.8759 0.0949 114.74)"
-  surface: "oklch(0.792 0.0586 114.21)"
-  muted-ink: "oklch(0.41 0.05 115.7)"
-  accent: "oklch(0.507 0.0838 115.77)"
+  primary: "#44624a"
+  neutral-bg: "#f1ebe1"
+  surface: "#ffffff"
+  muted-ink: "#44624a"
+  accent: "#8ba888"
+  accent-soft: "#c0cfb2"
 typography:
   display:
     fontFamily: '"Archivo", "Avenir Next", sans-serif'
@@ -82,13 +83,13 @@ components:
 
 **Creative North Star: "The Systems Field Guide"**
 
-This visual system treats the portfolio as a field guide to work that has shipped. It is calm and precise enough for a technical reader to scan, but warm enough to keep the person behind the systems visible. The pale linden canvas, deep olive ink, oversized sans-serif headlines, and compact mono labels make the interface feel like a carefully annotated record rather than a generic startup landing page.
+This visual system treats the portfolio as a field guide to work that has shipped. It is calm and precise enough for a technical reader to scan, but warm enough to keep the person behind the systems visible. The warm ivory canvas, deep green ink, oversized sans-serif headlines, and compact mono labels make the interface feel like a carefully annotated record rather than a generic startup landing page.
 
 The composition stays spacious and editorial while the controls remain tactile. Hairline rules divide the long-form story, a dark project band gives the work a distinct chapter, and small translations, shadows, and expanding rows make interaction feel present without becoming decorative. Future screens should preserve this balance: confident structure, human copy, and evidence-first emphasis.
 
 **Key Characteristics:**
 
-- Pale linden field with deep olive ink and a muted botanical accent range.
+- Warm ivory field with deep green ink and a restrained sage accent range.
 - Oversized Archivo display type paired with Source Sans 3 body copy and IBM Plex Mono metadata.
 - Twelve-column desktop compositions, thin section rules, and generous vertical breathing room.
 - Pill-shaped actions with small lift and arrow motion; circular controls for compact toggles.
@@ -96,20 +97,20 @@ The composition stays spacious and editorial while the controls remain tactile. 
 
 ## Colors
 
-The palette stays within one low-chroma yellow-green and olive family, using tonal contrast and one dark structural plane instead of a collection of unrelated hues.
+The palette uses five deliberate colors, with tonal contrast and one dark structural plane instead of a collection of unrelated hues.
 
 ### Primary
 
-- **Deep olive ink:** The main text, primary action, dark project surface, and strongest structural line. It should carry authority without reading as pure black.
+- **Deep green ink (#44624a):** The main text, primary action, dark project surface, and strongest structural line.
 
 ### Neutral
 
-- **Pale linden field:** The default page canvas and translucent sticky-header base; it keeps the long scroll light and continuous.
-- **Sage surface:** The quiet secondary plane, portrait treatment base, and primary-button text color.
-- **Muted olive ink:** Supporting copy, metadata, inactive navigation, and dark-section supporting text.
-- **Olive accent line:** Rules, active accents, progress fill, and multiply overlays; use it as a signal rather than a second dominant voice.
+- **Warm ivory (#f1ebe1):** The default page canvas and translucent sticky-header base; it keeps the long scroll light and continuous.
+- **White (#ffffff):** High-contrast content on dark sections and the clean contact surface.
+- **Pale sage (#c0cfb2):** Soft interaction tints and quiet secondary surfaces.
+- **Sage green (#8ba888):** Rules, active accents, progress fill, and multiply overlays; use it as a signal rather than a second dominant voice.
 
-**The Single-Family Rule.** Keep new color decisions inside the existing yellow-green/olive family unless a future product decision explicitly changes the visual world.
+**The Five-Color Rule.** Keep new color decisions inside the approved deep green, sage, pale sage, ivory, and white palette unless a future product decision explicitly changes the visual world.
 
 ## Typography
 
@@ -158,8 +159,8 @@ Actions and compact controls use fully rounded pills (999px), while menu and exp
 ### Buttons
 
 - **Shape:** Fully rounded pill (999px), minimum 48px height, with horizontal padding around 19px.
-- **Primary:** Deep olive fill with sage text; use for the main work/contact action and the header CTA.
-- **Secondary:** Transparent linden field with a deep olive border and text; use for the résumé and lower-priority paths.
+- **Primary:** Deep green fill with white text; use for the main work/contact action and the header CTA.
+- **Secondary:** Transparent ivory field with a deep green border and text; use for the résumé and lower-priority paths.
 - **Hover / Focus:** Lift 2px, add the soft hover shadow, darken toward the ink color, and keep a 3px visible focus outline with 4px offset. Arrow icons move 3px horizontally on hover.
 
 ### Navigation

@@ -1,17 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --bg: oklch(0.8759 0.0949 114.74);
-  --surface: oklch(0.792 0.0586 114.21);
-  --fg: oklch(0.364 0.042 115.66);
-  --muted: oklch(0.41 0.05 115.7);
-  --border: oklch(0.507 0.0838 115.77);
-  --accent: oklch(0.507 0.0838 115.77);
-  --accent-strong: oklch(0.364 0.042 115.66);
-  --accent-soft: oklch(0.792 0.0586 114.21);
-  --dark-surface: oklch(0.364 0.042 115.66);
-  --dark-muted: oklch(0.8759 0.0949 114.74);
-  --success: oklch(0.507 0.0838 115.77);
+  --green-deep: #44624a;
+  --green: #8ba888;
+  --green-light: #c0cfb2;
+  --ivory: #f1ebe1;
+  --white: #ffffff;
+  --bg: var(--ivory);
+  --surface: var(--white);
+  --fg: var(--green-deep);
+  --muted: var(--green-deep);
+  --border: var(--green);
+  --accent: var(--green);
+  --accent-strong: var(--green-deep);
+  --accent-soft: var(--green-light);
+  --dark-surface: var(--green-deep);
+  --dark-muted: var(--ivory);
+  --on-dark: var(--white);
+  --success: var(--green);
   --font-display: "Archivo", "Avenir Next", sans-serif;
   --font-body: "Source Sans 3", "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", "SFMono-Regular", monospace;
@@ -64,7 +70,7 @@ figure {
   color: var(--fg);
 }
 :focus-visible {
-  outline: 3px solid var(--accent);
+  outline: 3px solid var(--fg);
   outline-offset: 4px;
 }
 .skip-link {
@@ -146,7 +152,7 @@ figure {
   letter-spacing: 0.02em;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 1px 0 oklch(0.364 0.042 115.66 / 0.12);
+  box-shadow: 0 1px 0 rgb(68 98 74 / 12%);
   transition:
     transform 150ms var(--ease),
     background 150ms var(--ease),
@@ -157,7 +163,7 @@ figure {
   transform: translateY(-2px);
   background: var(--fg);
   color: var(--surface);
-  box-shadow: 0 8px 20px oklch(0.364 0.042 115.66 / 0.18);
+  box-shadow: 0 8px 20px rgb(68 98 74 / 18%);
 }
 .button:active {
   transform: translateY(1px);
@@ -186,7 +192,7 @@ figure {
   top: 0;
   z-index: 50;
   border-bottom: 1px solid transparent;
-  background: oklch(0.8759 0.0949 114.74 / 0.88);
+  background: rgb(241 235 225 / 88%);
   backdrop-filter: blur(16px);
   transition: border-color 200ms var(--ease);
 }
@@ -318,7 +324,7 @@ figure {
 .rail-line {
   width: 1px;
   height: 100%;
-  background: color-mix(in oklch, var(--border) 38%, transparent);
+  background: color-mix(in srgb, var(--border) 38%, transparent);
   position: relative;
 }
 .rail-fill {
@@ -374,7 +380,7 @@ figure {
   color: var(--muted);
 }
 .hero .display em {
-  color: var(--accent);
+  color: var(--accent-strong);
   font-weight: 560;
   font-style: normal;
 }
@@ -488,7 +494,7 @@ figure {
   transition: background 150ms var(--ease);
 }
 .experience-button:hover {
-  background: oklch(0.792 0.0586 114.21 / 0.62);
+  background: rgb(192 207 178 / 62%);
 }
 .experience-button:focus-visible {
   outline-offset: -3px;
@@ -581,14 +587,14 @@ figure {
   min-height: 680px;
 }
 .project-index {
-  border-top: 1px solid oklch(0.8759 0.0949 114.74 / 0.28);
+  border-top: 1px solid rgb(241 235 225 / 28%);
 }
 .project-tab {
   width: 100%;
   min-height: 92px;
   padding: 18px 0;
   border: 0;
-  border-bottom: 1px solid oklch(0.8759 0.0949 114.74 / 0.2);
+  border-bottom: 1px solid rgb(241 235 225 / 20%);
   display: grid;
   grid-template-columns: 40px 1fr auto;
   gap: 10px;
@@ -603,7 +609,7 @@ figure {
 }
 .project-tab:hover {
   color: var(--surface);
-  background: oklch(0.8759 0.0949 114.74 / 0.08);
+  background: rgb(241 235 225 / 8%);
 }
 .project-tab:focus-visible {
   outline-color: var(--surface);
@@ -696,7 +702,7 @@ figure {
 }
 .project-facts div {
   padding: 10px 0;
-  border-top: 1px solid oklch(0.8759 0.0949 114.74 / 0.22);
+  border-top: 1px solid rgb(241 235 225 / 22%);
 }
 .project-facts dt {
   margin-bottom: 3px;
@@ -807,7 +813,7 @@ figure {
 }
 
 .contact {
-  background: var(--accent-soft);
+  background: var(--surface);
   scroll-margin-top: 76px;
 }
 .contact-layout {
@@ -851,7 +857,7 @@ figure {
 }
 .contact-links a:hover {
   padding-inline: 10px;
-  background: oklch(0.8759 0.0949 114.74 / 0.3);
+  background: rgb(192 207 178 / 30%);
 }
 .contact-links a span:first-child {
   min-width: 0;
@@ -995,7 +1001,7 @@ figure {
     justify-content: space-between;
     align-items: center;
     min-height: 68px;
-    border-bottom: 1px solid oklch(0.8759 0.0949 114.74 / 0.22);
+    border-bottom: 1px solid rgb(241 235 225 / 22%);
     font-family: var(--font-display);
     font-size: 34px;
     font-weight: 560;
@@ -1072,7 +1078,7 @@ figure {
     padding-block: 80px;
   }
   .site-header {
-    background: oklch(0.8759 0.0949 114.74 / 0.94);
+    background: rgb(241 235 225 / 94%);
   }
   .hero {
     padding-top: 54px;

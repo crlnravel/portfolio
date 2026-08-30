@@ -1,4 +1,4 @@
-.resume-topbar { position: sticky; top: 0; z-index: 10; background: oklch(0.8759 0.0949 114.74 / .92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+.resume-topbar { position: sticky; top: 0; z-index: 10; background: rgb(241 235 225 / 92%); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
 .resume-topbar-inner { width: min(100% - 32px, 1080px); min-height: 68px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .resume-control { min-height: 44px; display: inline-flex; align-items: center; padding: 0 14px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--fg); font-weight: 600; text-decoration: none; cursor: pointer; transition: transform 150ms var(--ease), background 150ms var(--ease); }
 .resume-control:hover { transform: translateY(-2px); background: var(--bg); }
