@@ -86,61 +86,81 @@ const projects = [
 				<h2 class="section-title">Building products that people can actually rely on.</h2>
 			</div>
 		</div>
-		<div class="project-stage" data-projects data-reveal>
-			<div class="project-index" role="tablist" aria-label="Selected projects">
-				{projects.map((project, index) => (
-					<button
-						id={`project-tab-${index}`}
-						class:list={['project-tab', { active: index === 0 }]}
-						role="tab"
-						aria-selected={index === 0 ? 'true' : 'false'}
-						aria-controls={`project-panel-${index}`}
-						tabindex={index === 0 ? 0 : -1}
-						data-project-tab={index}
-					>
-						<span class="project-tab-number">0{index + 1}</span>
-						<span class="project-tab-name">{project.name}</span>
-						<span class="project-tab-mark" aria-hidden="true">{index === 0 ? '↗' : '·'}</span>
-					</button>
-				))}
-			</div>
-			<div class="project-panels">
-				{projects.map((project, index) => (
-					<div
-						id={`project-panel-${index}`}
-						class:list={['project-panel', { active: index === 0 }]}
-						role="tabpanel"
-						aria-labelledby={`project-tab-${index}`}
-						tabindex="0"
-						hidden={index !== 0}
-						data-project-panel={index}
-					>
-						<div class="project-visual">
-							<img
-								class:list={['project-image', { 'project-image-contain': project.imageFit === 'contain' }]}
-								src={project.image}
-								alt=""
-								aria-hidden="true"
-								loading={index === 0 ? 'eager' : 'lazy'}
-							/>
+
+		<div class="project-gallery" data-projects data-reveal>
+			{projects.map((project, index) => (
+				<button
+					class="project-card"
+					type="button"
+					aria-haspopup="dialog"
+					aria-expanded="false"
+					aria-controls={`project-dialog-${index}`}
+					aria-label={`Open details for ${project.name}`}
+					data-project-button
+				>
+					<img
+						class="project-card-image"
+						src={project.image}
+						alt=""
+						aria-hidden="true"
+						loading={index === 0 ? 'eager' : 'lazy'}
+					/>
+					<span class="project-card-label" aria-hidden="true">
+						<span class="project-card-number">0{index + 1} / PROJECT</span>
+						<span class="project-card-title">{project.name}</span>
+					</span>
+				</button>
+			))}
+		</div>
+
+		<div class="project-dialogs">
+			{projects.map((project, index) => (
+				<dialog
+					class="experience-dialog project-dialog"
+					id={`project-dialog-${index}`}
+					aria-modal="true"
+					aria-labelledby={`project-dialog-title-${index}`}
+					data-project-dialog
+				>
+					<div class="experience-dialog-shell project-dialog-shell">
+						<div class="experience-dialog-meta">
+							<span>0{index + 1} · Project</span>
 						</div>
-						<div class="project-copy">
-							<div>
-								<h3>{project.name}</h3>
-								<p>{project.copy}</p>
+						<div class="project-dialog-layout">
+							<div class="project-dialog-visual">
+								<img
+									class:list={['project-dialog-image', { 'project-dialog-image--contain': project.imageFit === 'contain' }]}
+									src={project.image}
+									alt=""
+									aria-hidden="true"
+								/>
 							</div>
-							<dl class="project-facts">
-								<div><dt>Platform</dt><dd>{project.platform}</dd></div>
-								<div><dt>Role</dt><dd>{project.role}</dd></div>
-								<div><dt>Timeline</dt><dd>{project.timeline}</dd></div>
-								<div><dt>Tech</dt><dd>{project.tech}</dd></div>
-								{project.website && <div><dt>Website</dt><dd><a href={project.website} target="_blank" rel="noreferrer" aria-label={`Visit ${project.name} website`}>Visit site ↗</a></dd></div>}
-								{project.links?.length ? <div><dt>Links</dt><dd class="project-links">{project.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer">{link.label} ↗</a>)}</dd></div> : null}
-							</dl>
+							<div class="experience-dialog-content">
+								<p class="experience-dialog-company">{project.platform}</p>
+								<h3 id={`project-dialog-title-${index}`}>{project.name}</h3>
+								<p class="project-dialog-outcome">{project.outcome}</p>
+								<p class="experience-dialog-detail">{project.copy}</p>
+								<dl class="project-dialog-facts">
+									<div><dt>Role</dt><dd>{project.role}</dd></div>
+									<div><dt>Timeline</dt><dd>{project.timeline}</dd></div>
+									<div><dt>Tech</dt><dd>{project.tech}</dd></div>
+								</dl>
+								{(project.website || project.links?.length) && (
+									<div class="project-dialog-links">
+										{project.website && <a href={project.website} target="_blank" rel="noreferrer" aria-label={`Visit ${project.name} website`}>Visit site →</a>}
+										{project.links?.map((link) => <a href={link.href} target="_blank" rel="noreferrer">{link.label} →</a>)}
+									</div>
+								)}
+							</div>
 						</div>
+						<form method="dialog">
+							<button class="experience-dialog-close" type="submit" aria-label="Close dialog" data-gallery-close>
+								<span aria-hidden="true">×</span>
+							</button>
+						</form>
 					</div>
-				))}
-			</div>
+				</dialog>
+			))}
 		</div>
 	</div>
 </section>

@@ -27,38 +27,62 @@ const roles = [
 ];
 ---
 
-<section class="section shell section-rule" id="experience" data-section>
+	<section class="section shell experience-section" id="experience" data-section>
 	<div class="experience-head" data-reveal>
 		<div>
 			<span class="eyebrow">03 · Experience</span>
 			<h2 class="section-title">Built through shipping, not just studying.</h2>
 		</div>
-		<p class="lead">From student organizations to startups, every role has been an opportunity to solve larger problems, collaborate with talented people, and build software that reaches real users.</p>
 	</div>
-	<div class="experience-list" data-reveal>
+
+	<div class="experience-tiles" data-reveal>
 		{roles.map((item, index) => (
-			<article class="experience-item">
-				<button
-					class="experience-button"
-					type="button"
-					aria-expanded="false"
-					aria-controls={`experience-detail-${index}`}
-					data-experience-button
-				>
-					<span class="experience-index">0{index + 1}</span>
-					<span class="experience-role">{item.company}</span>
-					<span class="experience-company">{item.role}</span>
-					<span class="experience-date">{item.date}</span>
-					<span class="expand-icon" aria-hidden="true">+</span>
-				</button>
-				<div class="experience-detail" id={`experience-detail-${index}`} aria-hidden="true" data-experience-detail>
-					<div class="experience-detail-clip">
-						<div class="experience-detail-inner">
-							<p><strong>{item.company}</strong> · {item.detail}</p>
-						</div>
+			<button
+				class="experience-tile"
+				type="button"
+				aria-haspopup="dialog"
+				aria-expanded="false"
+				aria-controls={`experience-dialog-${index}`}
+				data-experience-button
+			>
+				<span class="experience-tile-top">
+					<span class="experience-tile-index">0{index + 1} / ROLE</span>
+					<span class="experience-tile-title">{item.company}</span>
+				</span>
+				<span class="experience-tile-footer">
+					<span class="experience-tile-role">{item.role}</span>
+					<span class="experience-tile-date">{item.date}</span>
+				</span>
+			</button>
+		))}
+	</div>
+
+	<div class="experience-dialogs">
+		{roles.map((item, index) => (
+			<dialog
+				class="experience-dialog"
+				id={`experience-dialog-${index}`}
+				aria-modal="true"
+				aria-labelledby={`experience-dialog-title-${index}`}
+				data-experience-dialog
+			>
+				<div class="experience-dialog-shell">
+					<div class="experience-dialog-meta">
+						<span>0{index + 1} · Experience</span>
 					</div>
+					<div class="experience-dialog-content">
+						<p class="experience-dialog-company">{item.company}</p>
+						<h3 id={`experience-dialog-title-${index}`}>{item.role}</h3>
+						<p class="experience-dialog-date">{item.date}</p>
+						<p class="experience-dialog-detail">{item.detail}</p>
+					</div>
+					<form method="dialog">
+						<button class="experience-dialog-close" type="submit" aria-label="Close dialog" data-gallery-close>
+							<span aria-hidden="true">×</span>
+						</button>
+					</form>
 				</div>
-			</article>
+			</dialog>
 		))}
 	</div>
 </section>

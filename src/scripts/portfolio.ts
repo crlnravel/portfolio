@@ -71,60 +71,43 @@ window.addEventListener('keydown', (event) => {
 	}
 });
 
-document.querySelectorAll<HTMLButtonElement>('[data-experience-button]').forEach((button) => {
-	button.addEventListener('click', () => {
-		const isOpen = button.getAttribute('aria-expanded') === 'true';
-		button.setAttribute('aria-expanded', String(!isOpen));
-		button.closest('.experience-item')?.classList.toggle('open', !isOpen);
-		const detailId = button.getAttribute('aria-controls');
-		if (detailId) document.getElementById(detailId)?.setAttribute('aria-hidden', String(isOpen));
-	});
-});
+function bindGalleryDialogs(buttonSelector: string, dialogSelector: string) {
+	const focusTargets = new WeakMap<HTMLDialogElement, HTMLButtonElement>();
+	const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>(buttonSelector));
+	const dialogs = Array.from(document.querySelectorAll<HTMLDialogElement>(dialogSelector));
 
-const projectRoot = document.querySelector<HTMLElement>('[data-projects]');
-if (projectRoot) {
-	const tabs = Array.from(projectRoot.querySelectorAll<HTMLButtonElement>('[data-project-tab]'));
-	const panels = Array.from(projectRoot.querySelectorAll<HTMLElement>('[data-project-panel]'));
+	function openDialog(button: HTMLButtonElement) {
+		const dialogId = button.getAttribute('aria-controls');
+		const dialog = dialogId ? document.getElementById(dialogId) : null;
+		if (!(dialog instanceof HTMLDialogElement) || dialog.open) return;
 
-	function selectProject(index: number, moveFocus = false) {
-		tabs.forEach((tab, tabIndex) => {
-			const active = tabIndex === index;
-			tab.classList.toggle('active', active);
-			tab.setAttribute('aria-selected', String(active));
-			tab.tabIndex = active ? 0 : -1;
-			const mark = tab.querySelector<HTMLElement>('.project-tab-mark');
-			if (mark) mark.textContent = active ? '↗' : '·';
-		});
-		panels.forEach((panel, panelIndex) => {
-			const active = panelIndex === index;
-			panel.hidden = !active;
-			panel.classList.toggle('active', active);
-		});
-		try {
-			window.localStorage.setItem('carleano:selected-project', String(index));
-		} catch {}
-		if (moveFocus) tabs[index]?.focus();
+		focusTargets.set(dialog, button);
+		button.setAttribute('aria-expanded', 'true');
+		if (typeof dialog.showModal === 'function') dialog.showModal();
+		else dialog.setAttribute('open', '');
+		dialog.querySelector<HTMLElement>('[data-gallery-close]')?.focus();
 	}
 
-	tabs.forEach((tab, index) => {
-		tab.addEventListener('click', () => selectProject(index));
-		tab.addEventListener('keydown', (event) => {
-			if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
+	buttons.forEach((button) => button.addEventListener('click', () => openDialog(button)));
+	dialogs.forEach((dialog) => {
+		dialog.addEventListener('click', (event) => {
+			if (event.target === dialog) dialog.close();
+		});
+		dialog.addEventListener('cancel', (event) => {
 			event.preventDefault();
-			let next = index;
-			if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-			if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
-			if (event.key === 'Home') next = 0;
-			if (event.key === 'End') next = tabs.length - 1;
-			selectProject(next, true);
+			dialog.close();
+		});
+		dialog.addEventListener('close', () => {
+			const button = focusTargets.get(dialog);
+			button?.setAttribute('aria-expanded', 'false');
+			button?.focus();
+			focusTargets.delete(dialog);
 		});
 	});
-
-	try {
-		const saved = Number(window.localStorage.getItem('carleano:selected-project') ?? 0);
-		if (Number.isInteger(saved) && saved >= 0 && saved < tabs.length) selectProject(saved);
-	} catch {}
 }
+
+bindGalleryDialogs('[data-experience-button]', '[data-experience-dialog]');
+bindGalleryDialogs('[data-project-button]', '[data-project-dialog]');
 
 const revealObserver = new IntersectionObserver(
 	(entries, observer) => {
