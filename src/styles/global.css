@@ -504,7 +504,7 @@ figure {
   align-items: end;
 }
 .experience-tiles {
-  margin-top: 56px;
+  margin-top: 32px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
