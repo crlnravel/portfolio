@@ -429,7 +429,11 @@ figure {
 }
 
 .about {
-  background: var(--ivory);
+  background: var(--dark-surface);
+  color: var(--surface);
+}
+.about .eyebrow {
+  color: var(--dark-muted);
 }
 .tech-marquee-section {
   background: var(--bg);
@@ -485,7 +489,7 @@ figure {
 .about-copy > p:not(.lead) {
   max-width: 57ch;
   margin: 22px 0 0;
-  color: var(--muted);
+  color: var(--dark-muted);
 }
 
 .experience-section,
