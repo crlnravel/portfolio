@@ -558,7 +558,7 @@ figure {
 }
 .experience-tile-top {
   align-content: start;
-  gap: 18px;
+  gap: 8px;
 }
 .experience-tile-footer {
   gap: 6px;
@@ -632,7 +632,7 @@ figure {
   position: relative;
   display: grid;
   grid-template-rows: auto auto;
-  gap: 18px;
+  gap: 8px;
   padding: clamp(52px, 5vw, 72px) clamp(28px, 5vw, 58px) clamp(28px, 5vw, 58px);
 }
 .experience-dialog-meta {
@@ -1294,7 +1294,7 @@ figure {
     min-height: 288px;
   }
   .experience-dialog-shell {
-    gap: 18px;
+    gap: 8px;
   }
   .experience-dialog {
     min-height: min(560px, calc(100vh - 24px));
