@@ -1,0 +1,192 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Links — Carleano Ravelza Wongso"
+	description="A collection of links from Carleano Ravelza Wongso."
+	canonicalPath="/links"
+>
+	<main id="main" class="links-page">
+		<div class="links-shell">
+			<header class="links-topbar">
+				<a class="links-logo" href="/" aria-label="Back to Carleano's portfolio">
+					<img src="/logo.svg" alt="Carleano" />
+				</a>
+				<span class="links-topline">Public link index</span>
+			</header>
+
+			<section class="links-intro" aria-labelledby="links-title">
+				<div class="links-avatar">
+					<img src="/Ravel Profile.jpg" alt="" aria-hidden="true" />
+				</div>
+				<h1 id="links-title" class="links-title">Carleano Ravelza Wongso</h1>
+				<p class="links-description">Software engineer building reliable products, AI systems, and tools.</p>
+				<p class="links-meta">Jakarta, Indonesia · currently building</p>
+			</section>
+
+			<section class="links-content" aria-labelledby="links-list-title">
+				<h2 id="links-list-title" class="links-list-title">Link index</h2>
+				<div class="links-list" data-links-list aria-busy="true">
+					<div class="links-loading" data-links-loading>
+						<span class="links-loading-mark" aria-hidden="true"></span>
+						<span>Loading link index</span>
+					</div>
+				</div>
+				<p class="links-status" data-links-status role="status" hidden></p>
+				<noscript>
+					<p class="links-noscript">Enable JavaScript to load the public link list.</p>
+				</noscript>
+			</section>
+
+			<footer class="links-footer">
+				<span>Built with care</span>
+				<a href="/">View full portfolio <span aria-hidden="true">↗</span></a>
+			</footer>
+		</div>
+	</main>
+
+	<script>
+		const list = document.querySelector('[data-links-list]');
+		const loading = document.querySelector('[data-links-loading]');
+		const status = document.querySelector('[data-links-status]');
+
+		const chainPath = 'M9.17 14.83 7.05 16.95a3 3 0 0 1-4.24-4.24l3.54-3.54a3 3 0 0 1 4.24 0';
+		const chainPathTwo = 'm14.83 9.17 2.12-2.12a3 3 0 0 1 4.24 4.24l-3.54 3.54a3 3 0 0 1-4.24 0';
+		const chainPathThree = 'm8 12 8-8m0 8-8 8';
+
+		function createLinkIcon() {
+			const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+			svg.setAttribute('viewBox', '0 0 24 24');
+			svg.setAttribute('aria-hidden', 'true');
+			svg.setAttribute('focusable', 'false');
+			svg.classList.add('links-item-icon-svg');
+
+			[chainPath, chainPathTwo, chainPathThree].forEach((pathData) => {
+				const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+				path.setAttribute('d', pathData);
+				path.setAttribute('fill', 'none');
+				path.setAttribute('stroke', 'currentColor');
+				path.setAttribute('stroke-width', '1.5');
+				path.setAttribute('stroke-linecap', 'round');
+				path.setAttribute('stroke-linejoin', 'round');
+				svg.append(path);
+			});
+
+			return svg;
+		}
+
+		function resolveHref(value) {
+			if (typeof value !== 'string' || !value.trim()) return null;
+
+			try {
+				const url = new URL(value, window.location.origin);
+				if (!['http:', 'https:', 'mailto:'].includes(url.protocol)) return null;
+				return {
+					href: url.href,
+					external: url.protocol === 'http:' || url.protocol === 'https:',
+				};
+			} catch {
+				return null;
+			}
+		}
+
+		function createLinkItem(item, index) {
+			if (!item || typeof item.label !== 'string') return null;
+
+			const resolved = resolveHref(item.href);
+			if (!resolved) return null;
+
+			const anchor = document.createElement('a');
+			anchor.className = 'links-item';
+			anchor.href = resolved.href;
+			if (resolved.external) {
+				anchor.target = '_blank';
+				anchor.rel = 'noreferrer';
+			}
+
+			const icon = document.createElement('span');
+			icon.className = 'links-item-icon';
+			icon.append(createLinkIcon());
+
+			const copy = document.createElement('span');
+			copy.className = 'links-item-copy';
+
+			const label = document.createElement('span');
+			label.className = 'links-item-label';
+			label.textContent = item.label;
+			copy.append(label);
+
+			if (typeof item.description === 'string' && item.description.trim()) {
+				const description = document.createElement('span');
+				description.className = 'links-item-description';
+				description.textContent = item.description;
+				copy.append(description);
+			}
+
+			const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+			arrow.setAttribute('viewBox', '0 0 20 20');
+			arrow.setAttribute('aria-hidden', 'true');
+			arrow.setAttribute('focusable', 'false');
+			arrow.classList.add('links-item-arrow');
+			const arrowPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+			arrowPath.setAttribute('d', 'M3 10h13M11 5l5 5-5 5');
+			arrowPath.setAttribute('fill', 'none');
+			arrowPath.setAttribute('stroke', 'currentColor');
+			arrowPath.setAttribute('stroke-width', '1.6');
+			arrowPath.setAttribute('stroke-linecap', 'round');
+			arrowPath.setAttribute('stroke-linejoin', 'round');
+			arrow.append(arrowPath);
+
+			const number = document.createElement('span');
+			number.className = 'links-item-number';
+			number.textContent = String(index + 1).padStart(2, '0');
+			number.setAttribute('aria-hidden', 'true');
+
+			anchor.append(icon, copy, arrow, number);
+			return anchor;
+		}
+
+		function showStatus(message) {
+			if (!status) return;
+			status.textContent = message;
+			status.hidden = false;
+		}
+
+		async function loadLinks() {
+			if (!list) return;
+
+			try {
+				const response = await fetch('/links.json', {
+					headers: { Accept: 'application/json' },
+				});
+				if (!response.ok) throw new Error(`Request failed with status ${response.status}`);
+
+				const payload = await response.json();
+				const entries = Array.isArray(payload?.links) ? payload.links : [];
+				const fragment = document.createDocumentFragment();
+				let renderedCount = 0;
+
+				entries.forEach((item) => {
+					const link = createLinkItem(item, renderedCount);
+					if (!link) return;
+					fragment.append(link);
+					renderedCount += 1;
+				});
+
+				if (!renderedCount) {
+					showStatus('No links are published yet. Add one to public/links.json to get started.');
+				} else {
+					list.replaceChildren(fragment);
+				}
+			} catch {
+				showStatus('The link list could not load. Check that public/links.json is available.');
+			} finally {
+				loading?.setAttribute('hidden', '');
+				list?.setAttribute('aria-busy', 'false');
+			}
+		}
+
+		loadLinks();
+	</script>
+</Layout>

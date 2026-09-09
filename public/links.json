@@ -1,0 +1,24 @@
+{
+  "links": [
+    {
+      "label": "Primary link",
+      "description": "Replace this placeholder URL in public/links.json.",
+      "href": "https://www.google.com"
+    },
+    {
+      "label": "Featured work",
+      "description": "Replace this placeholder URL in public/links.json.",
+      "href": "https://www.google.com"
+    },
+    {
+      "label": "Writing and notes",
+      "description": "Replace this placeholder URL in public/links.json.",
+      "href": "https://www.google.com"
+    },
+    {
+      "label": "Get in touch",
+      "description": "Replace this placeholder URL in public/links.json.",
+      "href": "https://www.google.com"
+    }
+  ]
+}
