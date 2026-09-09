@@ -1,0 +1,38 @@
+---
+import Arrow from '../components/Arrow.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Page not found — Carleano Ravelza Wongso"
+	description="The page you requested could not be found."
+	canonicalPath="/404"
+	robots="noindex, follow"
+>
+	<main id="main" class="not-found">
+		<div class="not-found-shell">
+			<header class="not-found-topbar">
+				<a class="not-found-logo" href="/" aria-label="Back to Carleano's portfolio">
+					<img src="/logo.svg" alt="Carleano" />
+				</a>
+				<span class="not-found-code">404 / Page not found</span>
+			</header>
+
+			<section class="not-found-content" aria-labelledby="not-found-title">
+				<div class="not-found-number" aria-hidden="true">404</div>
+				<div class="not-found-copy">
+					<h1 id="not-found-title" class="not-found-title">This path doesn't <em>exist.</em></h1>
+					<p>The page you were looking for has moved, disappeared, or was never part of this build.</p>
+					<div class="not-found-actions">
+						<a class="button button-primary" href="/">Back to portfolio <Arrow /></a>
+						<a class="button" href="/links">Open links <Arrow /></a>
+					</div>
+				</div>
+			</section>
+
+			<footer class="not-found-footer">
+				<span>Carleano Ravelza Wongso · Jakarta, Indonesia</span>
+			</footer>
+		</div>
+	</main>
+</Layout>

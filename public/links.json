@@ -1,24 +1,22 @@
 {
   "links": [
     {
-      "label": "Primary link",
-      "description": "Replace this placeholder URL in public/links.json.",
-      "href": "https://www.google.com"
+      "label": "Agent Router",
+      "description": "Agent Router free 175$ credits.",
+      "href": "https://agentrouter.org/register?aff=OnaO",
+      "image": "https://blinkdeal.cc/_next/image?url=https%3A%2F%2Fagentrouter.org%2Flogo.png&w=3840&q=75"
     },
     {
-      "label": "Featured work",
-      "description": "Replace this placeholder URL in public/links.json.",
-      "href": "https://www.google.com"
+      "label": "Kira AI",
+      "description": "Kira AI free credits.",
+      "href": "https://kiraai.vn/?ref=sccunifart",
+      "image": "https://kiraai.vn/images/logo.png"
     },
     {
-      "label": "Writing and notes",
-      "description": "Replace this placeholder URL in public/links.json.",
-      "href": "https://www.google.com"
-    },
-    {
-      "label": "Get in touch",
-      "description": "Replace this placeholder URL in public/links.json.",
-      "href": "https://www.google.com"
+      "label": "B.AI",
+      "description": "B.AI free AI credits",
+      "href": "https://chat.b.ai/chat?invite_code=9KAB3Y",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA99wK1ukF6BZrNV5YHwLhK-qhXVMzOb_-I56i6J43lbbTCJNe0DHt3MA&s=10"
     }
   ]
 }

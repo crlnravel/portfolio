@@ -5,12 +5,14 @@ interface Props {
 	title?: string;
 	description?: string;
 	canonicalPath?: string;
+	robots?: string;
 }
 
 const {
 	title = 'Carleano Ravelza Wongso — Software Engineer',
 	description = 'Carleano Ravelza Wongso is a Jakarta-based software engineer and computer science student building scalable systems and intelligent products.',
 	canonicalPath = '/',
+	robots,
 } = Astro.props;
 
 const canonicalUrl = new URL(canonicalPath, 'https://carlravel.tech');
@@ -23,6 +25,7 @@ const canonicalUrl = new URL(canonicalPath, 'https://carlravel.tech');
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="theme-color" content="#f1ebe1" />
 		<meta name="description" content={description} />
+		{robots && <meta name="robots" content={robots} />}
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />

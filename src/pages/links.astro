@@ -9,24 +9,8 @@ import Layout from '../layouts/Layout.astro';
 >
 	<main id="main" class="links-page">
 		<div class="links-shell">
-			<header class="links-topbar">
-				<a class="links-logo" href="/" aria-label="Back to Carleano's portfolio">
-					<img src="/logo.svg" alt="Carleano" />
-				</a>
-				<span class="links-topline">Public link index</span>
-			</header>
-
-			<section class="links-intro" aria-labelledby="links-title">
-				<div class="links-avatar">
-					<img src="/Ravel Profile.jpg" alt="" aria-hidden="true" />
-				</div>
-				<h1 id="links-title" class="links-title">Carleano Ravelza Wongso</h1>
-				<p class="links-description">Software engineer building reliable products, AI systems, and tools.</p>
-				<p class="links-meta">Jakarta, Indonesia · currently building</p>
-			</section>
-
-			<section class="links-content" aria-labelledby="links-list-title">
-				<h2 id="links-list-title" class="links-list-title">Link index</h2>
+			<section class="links-content" aria-labelledby="links-heading">
+				<h1 id="links-heading" class="links-heading">Links</h1>
 				<div class="links-list" data-links-list aria-busy="true">
 					<div class="links-loading" data-links-loading>
 						<span class="links-loading-mark" aria-hidden="true"></span>
@@ -38,11 +22,7 @@ import Layout from '../layouts/Layout.astro';
 					<p class="links-noscript">Enable JavaScript to load the public link list.</p>
 				</noscript>
 			</section>
-
-			<footer class="links-footer">
-				<span>Built with care</span>
-				<a href="/">View full portfolio <span aria-hidden="true">↗</span></a>
-			</footer>
+			<a class="links-portfolio-link" href="/">Visit my portfolio <span aria-hidden="true">↗</span></a>
 		</div>
 	</main>
 
@@ -76,6 +56,45 @@ import Layout from '../layouts/Layout.astro';
 			return svg;
 		}
 
+		function resolveImage(value) {
+			if (typeof value !== 'string' || !value.trim()) return null;
+
+			try {
+				const url = new URL(value, window.location.origin);
+				if (!['http:', 'https:'].includes(url.protocol)) return null;
+				return url.href;
+			} catch {
+				return null;
+			}
+		}
+
+		function createLinkVisual(imageSource) {
+			const icon = document.createElement('span');
+			icon.className = 'links-item-icon';
+			const imageHref = resolveImage(imageSource);
+
+			if (!imageHref) {
+				icon.append(createLinkIcon());
+				return icon;
+			}
+
+			icon.classList.add('links-item-icon--image');
+			const image = document.createElement('img');
+			image.className = 'links-item-image';
+			image.src = imageHref;
+			image.alt = '';
+			image.loading = 'lazy';
+			image.decoding = 'async';
+			image.referrerPolicy = 'no-referrer';
+			image.addEventListener('error', () => {
+				icon.classList.remove('links-item-icon--image');
+				icon.replaceChildren(createLinkIcon());
+			}, { once: true });
+			icon.append(image);
+
+			return icon;
+		}
+
 		function resolveHref(value) {
 			if (typeof value !== 'string' || !value.trim()) return null;
 
@@ -91,7 +110,7 @@ import Layout from '../layouts/Layout.astro';
 			}
 		}
 
-		function createLinkItem(item, index) {
+		function createLinkItem(item) {
 			if (!item || typeof item.label !== 'string') return null;
 
 			const resolved = resolveHref(item.href);
@@ -105,9 +124,7 @@ import Layout from '../layouts/Layout.astro';
 				anchor.rel = 'noreferrer';
 			}
 
-			const icon = document.createElement('span');
-			icon.className = 'links-item-icon';
-			icon.append(createLinkIcon());
+			const icon = createLinkVisual(item.image);
 
 			const copy = document.createElement('span');
 			copy.className = 'links-item-copy';
@@ -138,12 +155,7 @@ import Layout from '../layouts/Layout.astro';
 			arrowPath.setAttribute('stroke-linejoin', 'round');
 			arrow.append(arrowPath);
 
-			const number = document.createElement('span');
-			number.className = 'links-item-number';
-			number.textContent = String(index + 1).padStart(2, '0');
-			number.setAttribute('aria-hidden', 'true');
-
-			anchor.append(icon, copy, arrow, number);
+			anchor.append(icon, copy, arrow);
 			return anchor;
 		}
 
@@ -168,7 +180,7 @@ import Layout from '../layouts/Layout.astro';
 				let renderedCount = 0;
 
 				entries.forEach((item) => {
-					const link = createLinkItem(item, renderedCount);
+					const link = createLinkItem(item);
 					if (!link) return;
 					fragment.append(link);
 					renderedCount += 1;
