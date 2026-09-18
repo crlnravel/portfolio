@@ -4,7 +4,6 @@ const projects = [
 		name: 'EduVate',
 		platform: 'Web · Inclusive learning',
 		role: 'Team project',
-		timeline: 'Academic project · Universitas Indonesia',
 		tech: 'React Router · NestJS · PostgreSQL · Prisma · Redis · OpenAI · Google TTS',
 		image: '/projects/eduvate-preview.png',
 		website: null,
@@ -14,7 +13,6 @@ const projects = [
 		name: 'QuorumAI',
 		platform: 'Web · Meeting intelligence',
 		role: 'Software Engineer Intern',
-		timeline: 'Mar — Nov 2025',
 		tech: 'Go · PostgreSQL · REST APIs · SSE · Object storage',
 		image: '/projects/quorum-ai-landing.jpg',
 		imageFit: 'cover',
@@ -25,7 +23,6 @@ const projects = [
 		name: 'Indonesian ALPR Project',
 		platform: 'Machine learning · Computer vision',
 		role: 'Model development · ML engineering',
-		timeline: 'Independent project',
 		tech: 'YOLO11 · PyTorch · ONNX · TFLite · OpenCV',
 		image: '/projects/indonesian-alpr-preview.png',
 		imageFit: 'contain',
@@ -41,7 +38,6 @@ const projects = [
 		name: 'Trisurya',
 		platform: 'Research · E-government AI',
 		role: 'Research · Published paper',
-		timeline: 'Published · IEEE ICIMCIS 2024',
 		tech: 'GPT-4 / GPT-4o · RAG · Neo4j · PostgreSQL',
 		image: '/projects/trisurya-preview.png',
 		imageFit: 'contain',
@@ -52,7 +48,6 @@ const projects = [
 		name: 'COMPFEST',
 		platform: 'Web · IT event platform',
 		role: 'Vice PIC (DevOps) · Software Engineering',
-		timeline: 'Mar 2025 — Jan 2026',
 		tech: 'CI/CD · GitHub Actions · Automation · Deployment reliability',
 		image: '/projects/compfest-preview.png',
 		website: null,
@@ -62,7 +57,6 @@ const projects = [
 		name: 'Lookals',
 		platform: 'Apple platforms',
 		role: 'Product engineering',
-		timeline: 'Product development · 2026',
 		tech: 'SwiftUI · Real-time collaboration',
 		image: '/projects/LookalsPresentation.jpeg',
 		website: null,
@@ -73,7 +67,6 @@ const projects = [
 		name: 'RISTEK.Link',
 		platform: 'Web · URL shortener',
 		role: 'Open-source web project',
-		timeline: 'RISTEK Fasilkom UI',
 		tech: 'Next.js · TypeScript · Tailwind CSS · Chakra UI · Cloudflare Workers · Cloudflare KV',
 		image: '/projects/ristek-link.webp',
 		imageFit: 'contain',
@@ -166,9 +159,8 @@ const projects = [
 								)}
 								<p class="experience-dialog-detail">{project.copy}</p>
 								<dl class="project-dialog-facts">
-									<div><dt>Role</dt><dd>{project.role}</dd></div>
-									<div><dt>Timeline</dt><dd>{project.timeline}</dd></div>
-									<div><dt>Tech</dt><dd>{project.tech}</dd></div>
+									<div class="project-dialog-fact"><dt>Role</dt><dd>{project.role}</dd></div>
+									<div class="project-dialog-fact"><dt>Tech used</dt><dd>{project.tech}</dd></div>
 								</dl>
 							</div>
 						</div>

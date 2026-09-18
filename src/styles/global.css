@@ -867,16 +867,20 @@ figure {
 .project-dialog-facts {
   margin: 16px 0 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0 20px;
-  border-top: 1px solid var(--border);
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 12px;
 }
 .project-dialog-facts div {
-  padding: 12px 0;
-  border-bottom: 1px solid var(--border);
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  background: rgb(192 207 178 / 22%);
 }
 .project-dialog-facts dt {
-  margin-bottom: 3px;
+  margin: 0;
   font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 0.09em;
@@ -885,7 +889,9 @@ figure {
 }
 .project-dialog-facts dd {
   margin: 0;
-  font-size: 13px;
+  font-size: 14px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 .project-dialog-links {
   display: flex;
